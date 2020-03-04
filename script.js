@@ -31,12 +31,9 @@ if (localStorage.token) {
   const logoutButton = document.createElement("button");
 
   logoutButton.innerText = "Log-out";
+  logoutButton.id = "logout";
 
   document.body.append(logoutButton);
-
-  logoutButton.addEventListener("click", () => {
-    localStorage.removeItem("token");
-  });
 
   fetch("http://localhost:3000/profile", {
     method: "GET",
@@ -47,9 +44,14 @@ if (localStorage.token) {
     .then(response => response.json())
     .then(user => {
       console.log("user", user);
-      let loggedInUser = document.createElement("h1");
+      const loggedInUser = document.createElement("h1");
       loggedInUser.textContent = user.name;
       document.body.append(loggedInUser);
+      logoutButton.addEventListener("click", () => {
+        localStorage.removeItem("token");
+        logoutButton.style.display = "none";
+        loggedInUser.style.display = "none";
+      });
     })
     .catch(error => console.log(error));
 }
