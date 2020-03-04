@@ -1,7 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");
 * {
   box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
 }
 
+#project-info {
+  display: inline-block;
+}
+
+#git-hub {
+  display: inline-block;
+}
+
+.top-container {
+  text-align: center;
+  /* font-weight: bolder; */
+}
+
+.header-container h3 {
+  font-style: italic;
+}
+
+.header-container {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.header-container li {
+  text-align: left;
+}
+
+h2 {
+  background-color: rgb(202, 230, 255);
+  border-radius: 2em;
+  padding: 0.7em;
+}
+
+.header-container p {
+  display: inline-block;
+}
+
+.header-container li {
+  list-style: none;
+}
+
+.technical-projects-container {
+  padding: 0.7rem;
+}
+
+.technical-projects-container li {
+  /* padding: 1.2rem; */
+  padding-left: 1.2rem;
+  margin: 0.1rem;
+}
+
+.technical-projects-container h3 {
+  margin: 0.1rem;
+}
+
+.technical-projects-container p {
+  margin: 0.1rem;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: rgb(65, 60, 60);
+}
+
+h1 {
+  color: darkblue;
+}
+
+h3 {
+  font-weight: 100;
+}
+
+button {
+  padding: 0.15em;
+}
 /* #logout {
   display: none;
 } */
