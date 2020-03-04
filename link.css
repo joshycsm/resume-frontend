@@ -4,12 +4,74 @@
   font-family: "Spartan", sans-serif;
 }
 
+#header-form {
+  /* display: none; */
+}
+
 #project-info {
   display: inline-block;
+  padding-left: 0.8em;
 }
 
 #git-hub {
   display: inline-block;
+  padding-left: 0.8em;
+}
+
+#project-paragraph-info {
+  padding-left: 0.8em;
+}
+
+#project-paragraph-li {
+  padding-left: 2.2em;
+}
+
+.work-experiences-container p {
+  padding-left: 0.8em;
+}
+
+.work-experiences-container li {
+  padding-left: 2.2em;
+}
+
+.work-experiences-container form {
+  padding-left: 0.8em;
+}
+
+.work-experiences-container form p {
+  padding-left: 0em;
+}
+
+.header-container li {
+  padding-left: 0.8em;
+}
+
+.education-container p {
+  padding-left: 0.8em;
+}
+
+.education-container form {
+  padding-left: 0.8em;
+}
+
+.education-container form p {
+  padding-left: 0em;
+}
+
+.education-container li {
+  padding-left: 2.2em;
+}
+
+.technical-skills-container p {
+  padding-left: 0.8em;
+}
+
+.technical-skills-container form {
+  padding-left: 0.8em;
+}
+
+.technical-skills-container form p {
+  padding-left: 0em;
 }
 
 .top-container {
@@ -23,17 +85,26 @@
 
 .header-container {
   text-align: center;
-  padding: 0.5rem;
+  padding-left: 0.8rem;
 }
 
 .header-container li {
   text-align: left;
+  padding-left: 2.5em;
+}
+
+.header-container form {
+  padding: 0em;
 }
 
 h2 {
-  background-color: rgb(202, 230, 255);
+  background-color: rgb(162, 206, 245);
   border-radius: 2em;
-  padding: 0.7em;
+  padding: 0.4em;
+  /* margin: 0.5em; */
+  margin-block-start: 0.82em;
+  margin-block-end: 0.82em;
+  font-size: larger;
 }
 
 .header-container p {
@@ -42,6 +113,30 @@ h2 {
 
 .header-container li {
   list-style: none;
+}
+
+.work-experiences-container {
+  padding: 0.5em;
+}
+
+.technical-skills-container {
+  padding: 0.5em;
+}
+
+.education-container {
+  padding: 0.5em;
+}
+
+#project-info:nth-of-type(2) {
+  padding-left: 0;
+}
+
+.technical-projects-container form {
+  padding: 0.8rem;
+}
+
+.technical-projects-container form p {
+  padding: 0rem;
 }
 
 .technical-projects-container {
@@ -75,8 +170,20 @@ h3 {
   font-weight: 100;
 }
 
+a:visited {
+  color: lightseagreen;
+}
+
+a {
+  color: darkblue;
+}
+
 button {
   padding: 0.15em;
+}
+
+#paragraph-info {
+  /* padding-left: 0.5em; */
 }
 /* #logout {
   display: none;
