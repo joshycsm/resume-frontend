@@ -4,14 +4,30 @@
     <meta charset="UTF-8" />
     <title>Document</title>
     <link rel="stylesheet" href="./link.css" />
+    <script src="./script.js" defer></script>
   </head>
 
   <body>
     <form id="login-form">
       <input type="text" name="username" placeholder="Enter username" />
       <input type="text" name="password" placeholder="Enter password" />
-      <input type="submit" value="Login" />
+      <input id="login-button" type="submit" value="Login" />
     </form>
-    <script src="./script.js"></script>
+    <!-- <a href="localhost:3001">Reload</a> -->
+
+    <button id="edit-resume">Edit Resume</button>
+
+    <div class="resume-container">
+      <div class="top-container"></div>
+      <div class="header-container"></div>
+      <div class="technical-projects-container"></div>
+      <div class="work-experiences-container"></div>
+      <div class="education-container"></div>
+      <div class="technical-skills-container"></div>
+    </div>
+
+    <!-- <h2>Technical Projects</h2>
+    <h2>Work Experience</h2>
+    <h2>Education</h2> -->
   </body>
 </html>
