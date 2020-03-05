@@ -370,8 +370,8 @@ function toAccessUI() {
           projectDescription.id = "project-info";
           // projectDescription.id = "fix-padding";
           projectDeployedApp.innerHTML = `<a href="${project.deployed_app}">Deployed App</a> (username: <em>user</em> , password: <em>123</em> )`;
-          projectGitHub.innerHTML = `GitHub: <a href="${project.git_hub}">${project.git_hub}</a> |`;
-          projectVideo.innerHTML = `| <a href="${project.video}">Walk-through Video</a>`;
+          //   projectVideo.innerHTML = `<a href="${project.video}">Walk-through Video</a>`;
+          projectGitHub.innerHTML = `GitHub: <a href="${project.git_hub}">${project.git_hub}</a> | <a href="${project.video}">Walk-through Video</a>`;
           projectGitHub.id = "git-hub";
           projectVideo.id = "git-hub";
           projectDeployedApp.id = "project-paragraph-info";
@@ -384,7 +384,7 @@ function toAccessUI() {
             projectDescription,
             projectDeployedApp,
             projectGitHub,
-            projectVideo,
+            // projectVideo,
             projectDetailedDescription
           );
         });
