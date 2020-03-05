@@ -13,6 +13,10 @@
   padding-left: 0.8em;
 }
 
+#git-hub:nth-of-type(2) {
+  padding-left: 0em;
+}
+
 #git-hub {
   display: inline-block;
   padding-left: 0.8em;
@@ -128,7 +132,7 @@ h2 {
 }
 
 #project-info:nth-of-type(2) {
-  padding-left: 0;
+  padding-left: 0em;
 }
 
 .technical-projects-container form {
