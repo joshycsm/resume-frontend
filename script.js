@@ -7,6 +7,14 @@ const signUpButton = document.querySelector(".login-switch-link");
 const signInButton = document.querySelector(".sign-in-switch-link");
 const loginContainer = document.querySelector(".login-container");
 const signupContainer = document.querySelector(".signup-container");
+const forgotPasswordButton = document.querySelector(".forgot-password-button");
+const rememberPasswordButton = document.querySelector(
+  ".remember-password-button"
+);
+const resetPasswordButton = document.querySelector("#reset-password-button");
+const enterPasswordInput = document.querySelector("#enter-password-input");
+const enterEmailInput = document.querySelector("#enter-email-input");
+const enterUsernameInput = document.querySelector("#enter-username-input");
 const headerContainer = document.querySelector(".header-container");
 const topContainer = document.querySelector(".top-container");
 const technicalProjectsContainer = document.querySelector(
@@ -27,8 +35,34 @@ toSwitchToSignupForm();
 toSwitchToLoginForm();
 toSignupUser();
 toLoginUser();
+ifForgotPassword();
+ifRememberPassword();
 toAccessUI();
 toAccessEditModeUI();
+
+function ifRememberPassword() {
+  rememberPasswordButton.addEventListener("click", () => {
+    enterPasswordInput.style.display = "block";
+    forgotPasswordButton.style.display = "block";
+    loginButton.style.display = "block";
+    enterUsernameInput.style.display = "block";
+    rememberPasswordButton.style.display = "none";
+    resetPasswordButton.style.display = "none";
+    enterEmailInput.style.display = "none";
+  });
+}
+
+function ifForgotPassword() {
+  forgotPasswordButton.addEventListener("click", () => {
+    enterPasswordInput.style.display = "none";
+    enterUsernameInput.style.display = "none";
+    loginButton.style.display = "none";
+    forgotPasswordButton.style.display = "none";
+    enterEmailInput.style.display = "block";
+    resetPasswordButton.style.display = "block";
+    rememberPasswordButton.style.display = "block";
+  });
+}
 
 function toSwitchToLoginForm() {
   signInButton.addEventListener("click", () => {
@@ -301,7 +335,11 @@ function toSignupUser() {
         username: signupUsername,
         password: signupPassword
       })
-    });
+    })
+      .then(response => response.json())
+      .then(result => {
+        signupForm.reset();
+      });
   });
 }
 

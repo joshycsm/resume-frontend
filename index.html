@@ -13,10 +13,37 @@
     <div class="login-container">
       <h3 style="text-align: center;">Resume Builder</h3>
       <form id="login-form">
-        <input type="text" name="username" placeholder="Enter username" />
-        <input type="text" name="password" placeholder="Enter password" />
+        <input
+          style="display: none;"
+          id="enter-email-input"
+          type="text"
+          name="email"
+          placeholder="Enter email"
+        />
+        <input
+          id="enter-username-input"
+          type="text"
+          name="username"
+          placeholder="Enter username"
+        />
+        <input
+          id="enter-password-input"
+          type="text"
+          name="password"
+          placeholder="Enter password"
+        />
         <input id="login-button" type="submit" value="Login" />
+        <input
+          id="reset-password-button"
+          type="submit"
+          value="Reset Password"
+          style="display: none;"
+        />
       </form>
+      <button class="forgot-password-button">Forgot Password?</button>
+      <button class="remember-password-button" style="display: none;">
+        Remember Password?
+      </button>
       <!-- <a href="localhost:3001">Reload</a> -->
 
       <div class="login-switch-mode">
