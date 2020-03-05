@@ -1,7 +1,12 @@
 const loginForm = document.querySelector("#login-form");
+const signupForm = document.querySelector("#signup-form");
 const loginButton = document.querySelector("#login-button");
 const resumeContainer = document.querySelector(".resume-container");
-const logoutButton = document.createElement("button");
+const logoutButton = document.querySelector("#logout-button");
+const signUpButton = document.querySelector(".login-switch-link");
+const signInButton = document.querySelector(".sign-in-switch-link");
+const loginContainer = document.querySelector(".login-container");
+const signupContainer = document.querySelector(".signup-container");
 const headerContainer = document.querySelector(".header-container");
 const topContainer = document.querySelector(".top-container");
 const technicalProjectsContainer = document.querySelector(
@@ -18,9 +23,37 @@ const editMode = document.querySelector("#edit-mode");
 const exitEditMode = document.querySelector("#exit-edit-mode");
 // const login_url = "http://localhost:3000/login"
 toExitEditMode();
+toSwitchToSignupForm();
+toSwitchToLoginForm();
+toSignupUser();
 toLoginUser();
 toAccessUI();
 toAccessEditModeUI();
+
+function toSwitchToLoginForm() {
+  signInButton.addEventListener("click", () => {
+    loginContainer.style.display = "block";
+    signupContainer.style.display = "none";
+  });
+}
+
+function toSwitchToSignupForm() {
+  signUpButton.addEventListener("click", () => {
+    loginContainer.style.display = "none";
+    signupContainer.style.display = "block";
+  });
+}
+
+function toLogout() {
+  logoutButton.addEventListener("click", () => {
+    localStorage.removeItem("token");
+    logoutButton.style.display = "none";
+    resumeContainer.style.display = "none";
+    editMode.style.display = "none";
+    loginForm.style.display = "block";
+    loginContainer.style.display = "block";
+  });
+}
 
 function toAccessEditModeUI() {
   editMode.addEventListener("click", () => {
@@ -251,6 +284,16 @@ function toExitEditMode() {
   });
 }
 
+function toSignupUser() {
+  signupForm.addEventListener("submit", () => {
+    event.preventDefault();
+    let signupName = event.target.name.value;
+    let signupUsername = event.target.username.value;
+    let signupPassword = event.target.username.value;
+    console.log(signupName, signupUsername, signupPassword);
+  });
+}
+
 function toLoginUser() {
   loginForm.addEventListener("submit", () => {
     event.preventDefault();
@@ -272,18 +315,9 @@ function toLoginUser() {
     })
       .then(response => response.json())
       .then(result => {
-        // setTimeout(login(), 500);
-
-        // function login() {
-        //   loginButton.addEventListener("click", () => {
-        //     window.location.reload();
-        //   });
-        // }
         window.location.reload();
         loginForm.reset();
         localStorage.setItem("token", result.token);
-        //   editMode.style.display = "block";
-        //   loginForm.style.display = "none";
       })
       .catch(error => console.log(error));
   });
@@ -291,12 +325,10 @@ function toLoginUser() {
 
 function toAccessUI() {
   if (localStorage.token) {
-    logoutButton.innerText = "Log-out";
-    logoutButton.id = "logout";
-
-    loginForm.append(logoutButton);
-
     editMode.style.display = "block";
+    loginForm.style.display = "none";
+    logoutButton.style.display = "block";
+    loginContainer.style.display = "none";
 
     fetch("http://localhost:3000/profile", {
       method: "GET",
@@ -308,12 +340,7 @@ function toAccessUI() {
       .then(user => {
         console.log("user", user);
 
-        logoutButton.addEventListener("click", () => {
-          localStorage.removeItem("token");
-          logoutButton.style.display = "none";
-          resumeContainer.style.display = "none";
-          editMode.style.display = "none";
-        });
+        toLogout();
 
         const loggedInUser = document.createElement("h1");
         const technicalProjects = document.createElement("h2");
