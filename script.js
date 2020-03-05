@@ -338,6 +338,7 @@ function toSignupUser() {
     })
       .then(response => response.json())
       .then(result => {
+        console.log("signup submission", result);
         signupForm.reset();
       });
   });
