@@ -291,6 +291,17 @@ function toSignupUser() {
     let signupUsername = event.target.username.value;
     let signupPassword = event.target.username.value;
     console.log(signupName, signupUsername, signupPassword);
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: signupName,
+        username: signupUsername,
+        password: signupPassword
+      })
+    });
   });
 }
 
