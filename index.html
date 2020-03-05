@@ -10,15 +10,40 @@
   </head>
 
   <body>
-    <form id="login-form">
-      <input type="text" name="username" placeholder="Enter username" />
-      <input type="text" name="password" placeholder="Enter password" />
-      <input id="login-button" type="submit" value="Login" />
-    </form>
-    <!-- <a href="localhost:3001">Reload</a> -->
+    <div class="login-container">
+      <h3 style="text-align: center;">Resume Builder</h3>
+      <form id="login-form">
+        <input type="text" name="username" placeholder="Enter username" />
+        <input type="text" name="password" placeholder="Enter password" />
+        <input id="login-button" type="submit" value="Login" />
+      </form>
+      <!-- <a href="localhost:3001">Reload</a> -->
+
+      <div class="login-switch-mode">
+        <span class="login-switch-question">Don't have an account?</span>
+        <button class="login-switch-link">Sign Up</button>
+      </div>
+    </div>
+
+    <div class="signup-container" style="display: none;">
+      <h3 style="text-align: center;">Resume Builder</h3>
+      <form id="signup-form">
+        <input type="text" name="name" placeholder="Name" />
+        <input type="text" name="username" placeholder="Enter username" />
+        <input type="text" name="password" placeholder="Enter password" />
+        <input id="signup-button" type="submit" value="Sign Up" />
+      </form>
+      <!-- <a href="localhost:3001">Reload</a> -->
+
+      <div class="login-switch-mode">
+        <span class="login-switch-question">Already have an account?</span>
+        <button class="sign-in-switch-link">Sign In</button>
+      </div>
+    </div>
 
     <button id="edit-mode" style="display: none;">Edit Mode</button>
     <button id="exit-edit-mode" style="display: none;">Exit Edit Mode</button>
+    <button id="logout-button" style="display: none">Logout</button>
 
     <!-- <form id="header-form" name="header-form">
       <p>Modify Headers</p>
