@@ -348,6 +348,7 @@ function toAccessResume() {
         technicalSkills.textContent = "Technical Skills";
 
         topContainer.append(loggedInUser);
+
         function toShowHeader(header) {
           // console.log("header", header);
 
@@ -370,6 +371,11 @@ function toAccessResume() {
           );
         }
         user.headers.map(toShowHeader);
+
+        function createHeader() {
+          event.preventDefault();
+        }
+        // createHeaderForm.addEventListener("submit", createHeader);
 
         function updateHeader() {
           event.preventDefault();

@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <!-- Login Container Here -->
     <div class="login-container">
       <h3 style="text-align: center;">Resume Builder</h3>
       <form id="login-form">
@@ -44,14 +45,13 @@
       <button class="remember-password-button" style="display: none;">
         Remember Password?
       </button>
-      <!-- <a href="localhost:3001">Reload</a> -->
 
       <div class="login-switch-mode">
         <span class="login-switch-question">Don't have an account?</span>
         <button class="login-switch-link">Sign Up</button>
       </div>
     </div>
-
+    <!-- Sign Up Container Here -->
     <div class="signup-container" style="display: none;">
       <h3 style="text-align: center;">Resume Builder</h3>
       <form id="signup-form">
@@ -60,20 +60,20 @@
         <input type="text" name="password" placeholder="Enter password" />
         <input id="signup-button" type="submit" value="Sign Up" />
       </form>
-      <!-- <a href="localhost:3001">Reload</a> -->
 
       <div class="login-switch-mode">
         <span class="login-switch-question">Already have an account?</span>
         <button class="sign-in-switch-link">Sign In</button>
       </div>
     </div>
-
+    <!-- Manipulating Buttons For Resume Builder Here -->
     <button id="edit-mode" style="display: none;">Edit Mode</button>
     <button id="exit-edit-mode" style="display: none;">Exit Edit Mode</button>
     <button id="logout-button" style="display: none">Logout</button>
-
+    <!-- Resume Container Here -->
     <div class="resume-container">
       <div class="top-container"></div>
+      <!-- Update Header and Create Header Forms Here -->
       <div class="header-container">
         <div class="show-header-container"></div>
         <form id="header-form" name="header-form">
@@ -114,9 +114,50 @@
             name="personal-mission-statement"
             placeholder="Goals for this resume"
           />
-          <input type="submit" />
+          <input type="submit" value="Update Header Info" />
+        </form>
+        <form id="create-header-form" name="header-form">
+          <p>Modify Headers:</p>
+          <label for="personal-website">Personal Website:</label>
+          <input
+            type="text"
+            name="personal-website"
+            placeholder="Put your site here"
+          />
+          <label for="personal-git-hub">GitHub:</label>
+          <input
+            type="text"
+            name="personal-git-hub"
+            placeholder="GitHub goes here"
+          />
+          <label for="personal-linked-in">LinkedIn:</label>
+          <input
+            type="text"
+            name="personal-linked-in"
+            placeholder="LinkedIn goes here"
+          />
+          <label for="personal-email">Email:</label>
+          <input
+            type="text"
+            name="personal-email"
+            placeholder="Email goes here"
+          />
+          <label for="personal-phone-number">Phone Number:</label>
+          <input
+            type="text"
+            name="personal-phone-number"
+            placeholder="Number goes here"
+          />
+          <label for="personal-mission-statement">Mission Statement:</label>
+          <input
+            type="text"
+            name="personal-mission-statement"
+            placeholder="Goals for this resume"
+          />
+          <input type="submit" value="Create Header" />
         </form>
       </div>
+      <!-- Update Project & Add Project Form Here -->
       <div class="technical-projects-container">
         <div class="show-technical-projects-container"></div>
         <form id="project-form" name="project-form">
@@ -159,9 +200,52 @@
             name="project-detailed-description"
             placeholder="Detailed description here"
           />
-          <input type="submit" />
+          <input type="submit" value="Update Project Info" />
+        </form>
+        <form id="create-project-form" name="project-form">
+          <p>Add/Update Projects:</p>
+          <label for="project-name">Project Name:</label>
+          <input
+            type="text"
+            name="project-name"
+            placeholder="Project name here"
+          />
+          <label for="project-description">Project Description:</label>
+          <input
+            type="text"
+            name="project-description"
+            placeholder="Description goes here"
+          />
+          <label for="deployed-app">Deployed App Link:</label>
+          <input
+            type="text"
+            name="deployed-app"
+            placeholder="Deployed app link here"
+          />
+          <label for="project-git-hub">GitHub Link:</label>
+          <input
+            type="text"
+            name="project-git-hub"
+            placeholder="Link to GitHub Project here"
+          />
+          <label for="project-video">Video:</label>
+          <input
+            type="text"
+            name="project-video"
+            placeholder="Video link here"
+          />
+          <label for="project-detailed-description"
+            >Detailed Project Description:</label
+          >
+          <input
+            type="text"
+            name="project-detailed-description"
+            placeholder="Detailed description here"
+          />
+          <input type="submit" value="Add a New Project" />
         </form>
       </div>
+      <!-- Update Experience & Add Experience Form Here -->
       <div class="work-experiences-container">
         <div class="show-work-experiences-container"></div>
         <form id="experience-form" name="experience-form">
@@ -184,9 +268,32 @@
             name="job-detailed-description"
             placeholder="Detailed Description here"
           />
-          <input type="submit" />
+          <input type="submit" value="Update Work Experience" />
+        </form>
+        <form id="create-experience-form" name="experience-form">
+          <p>Add/Update Work Experience:</p>
+          <label for="job-title">Job Title:</label>
+          <input type="text" name="job-title" placeholder="Job title here" />
+          <label for="job-date">Date:</label>
+          <input type="text" name="job-date" placeholder="Jan 2018-Feb 2019" />
+          <label for="job-location">Location:</label>
+          <input type="text" name="job-location" placeholder="Location here" />
+          <label for="job-description">Description:</label>
+          <input
+            type="text"
+            name="job-description"
+            placeholder="Description here"
+          />
+          <label for="job-detailed-description">Detailed Description:</label>
+          <input
+            type="text"
+            name="job-detailed-description"
+            placeholder="Detailed Description here"
+          />
+          <input type="submit" value="Add Work Experience" />
         </form>
       </div>
+      <!-- Update Education & Add Education Form Here -->
       <div class="education-container">
         <div class="show-education-container"></div>
         <form id="education-form" name="education-form">
@@ -209,9 +316,32 @@
             name="education-description"
             placeholder="Description here"
           />
-          <input type="submit" />
+          <input type="submit" value="Update Education Info" />
+        </form>
+        <form id="create-education-form" name="education-form">
+          <p>Add/Update Education Deets:</p>
+          <label for="education-name">Educational Institution Name:</label>
+          <input
+            type="text"
+            name="education-name"
+            placeholder="Education institution name here"
+          />
+          <label for="education-date">Date:</label>
+          <input
+            type="text"
+            name="education-date"
+            placeholder="Jan 2018-Feb 2019"
+          />
+          <label for="education-description">Description:</label>
+          <input
+            type="text"
+            name="education-description"
+            placeholder="Description here"
+          />
+          <input type="submit" value="Add Education Info" />
         </form>
       </div>
+      <!-- Update Skills & Add Skills Form Here-->
       <div class="technical-skills-container">
         <div class="show-technical-skills-container"></div>
         <form id="skill-form" name="skill-form">
@@ -222,7 +352,17 @@
             name="skill-description"
             placeholder="Description here"
           />
-          <input type="submit" />
+          <input type="submit" value="Update Skill Info" />
+        </form>
+        <form id="create-skill-form" name="skill-form">
+          <p>Add/Update Skill Details:</p>
+          <label for="skill-description">Description:</label>
+          <input
+            type="text"
+            name="skill-description"
+            placeholder="Description here"
+          />
+          <input type="submit" value="Add Skill Info" />
         </form>
       </div>
     </div>
