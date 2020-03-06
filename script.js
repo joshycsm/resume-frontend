@@ -44,7 +44,6 @@ ifForgotPassword();
 ifRememberPassword();
 toAccessUI();
 toAccessEditModeUI();
-
 function ifRememberPassword() {
   rememberPasswordButton.addEventListener("click", () => {
     enterPasswordInput.style.display = "block";
@@ -56,7 +55,6 @@ function ifRememberPassword() {
     enterEmailInput.style.display = "none";
   });
 }
-
 function ifForgotPassword() {
   forgotPasswordButton.addEventListener("click", () => {
     enterPasswordInput.style.display = "none";
@@ -68,21 +66,18 @@ function ifForgotPassword() {
     rememberPasswordButton.style.display = "block";
   });
 }
-
 function toSwitchToLoginForm() {
   signInButton.addEventListener("click", () => {
     loginContainer.style.display = "block";
     signupContainer.style.display = "none";
   });
 }
-
 function toSwitchToSignupForm() {
   signUpButton.addEventListener("click", () => {
     loginContainer.style.display = "none";
     signupContainer.style.display = "block";
   });
 }
-
 function toLogout() {
   logoutButton.addEventListener("click", () => {
     localStorage.removeItem("token");
@@ -93,7 +88,6 @@ function toLogout() {
     loginContainer.style.display = "block";
   });
 }
-
 function toAccessEditModeUI() {
   editMode.addEventListener("click", () => {
     console.log("event", event);
@@ -103,6 +97,7 @@ function toAccessEditModeUI() {
     createProjectForm.style.display = "block";
     createSkillForm.style.display = "block";
     exitEditMode.style.display = "block";
+    editMode.style.display = "none";
     logoutButton.style.display = "none";
     fetch("http://localhost:3000/profile", {
       method: "GET",
@@ -310,7 +305,6 @@ function toAccessEditModeUI() {
       .catch(error => console.log(error));
   });
 }
-
 function toExitEditMode() {
   exitEditMode.addEventListener("click", () => {
     createHeaderForm.style.display = "none";
@@ -319,10 +313,10 @@ function toExitEditMode() {
     createProjectForm.style.display = "none";
     createSkillForm.style.display = "none";
     exitEditMode.style.display = "none";
+    editMode.style.display = "block";
     logoutButton.style.display = "block";
   });
 }
-
 function toSignupUser() {
   signupForm.addEventListener("submit", () => {
     event.preventDefault();
@@ -348,7 +342,6 @@ function toSignupUser() {
       });
   });
 }
-
 function toLoginUser() {
   loginForm.addEventListener("submit", () => {
     event.preventDefault();
@@ -377,7 +370,6 @@ function toLoginUser() {
       .catch(error => console.log(error));
   });
 }
-
 function toAccessUI() {
   if (localStorage.token) {
     editMode.style.display = "block";
@@ -410,7 +402,7 @@ function toAccessUI() {
 
         topContainer.append(loggedInUser);
 
-        user.headers.map(header => {
+        function toShowHeader(header) {
           console.log("header", header);
           const title = document.createElement("h3");
           const personalWebsite = document.createElement("p");
@@ -435,7 +427,9 @@ function toAccessUI() {
             personalNumber,
             missionStatement
           );
-        });
+        }
+
+        user.headers.map(toShowHeader);
 
         function updateHeader() {
           console.log("user", user);
@@ -446,7 +440,7 @@ function toAccessUI() {
 
         createHeaderForm.addEventListener("submit", updateHeader);
 
-        user.technical_projects.map(project => {
+        function toShowTechnicalProjects(project) {
           console.log("project", project);
           const projectName = document.createElement("p");
           const projectDescription = document.createElement("p");
@@ -478,9 +472,11 @@ function toAccessUI() {
             // projectVideo,
             projectDetailedDescription
           );
-        });
+        }
 
-        user.work_experiences.map(experience => {
+        user.technical_projects.map(toShowTechnicalProjects);
+
+        function toShowWorkExperience(experience) {
           console.log("experience", experience);
           const experienceJobTitle = document.createElement("p");
           const experienceDate = document.createElement("p");
@@ -503,9 +499,11 @@ function toAccessUI() {
             experienceDescription,
             experienceDetailedDescription
           );
-        });
+        }
 
-        user.educations.map(education => {
+        user.work_experiences.map(toShowWorkExperience);
+
+        function toShowEducation(education) {
           console.log("education", education);
           const educationName = document.createElement("p");
           const educationDate = document.createElement("p");
@@ -521,16 +519,20 @@ function toAccessUI() {
             educationDate,
             educationDescription
           );
-        });
+        }
 
-        user.technical_skills.map(skill => {
+        user.educations.map(toShowEducation);
+
+        function toShowTechnicalSkills(skill) {
           console.log("skill", skill);
           const skillDescription = document.createElement("p");
 
           skillDescription.textContent = skill.description;
 
           technicalSkillsContainer.append(technicalSkills, skillDescription);
-        });
+        }
+
+        user.technical_skills.map(toShowTechnicalSkills);
       })
       .catch(error => console.log(error));
   }
