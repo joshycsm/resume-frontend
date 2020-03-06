@@ -30,6 +30,11 @@ const technicalSkillsContainer = document.querySelector(
 const editMode = document.querySelector("#edit-mode");
 const exitEditMode = document.querySelector("#exit-edit-mode");
 // const login_url = "http://localhost:3000/login"
+const createHeaderForm = document.createElement("form");
+const createProjectForm = document.createElement("form");
+const createExperienceForm = document.createElement("form");
+const createEducationForm = document.createElement("form");
+const createSkillForm = document.createElement("form");
 toExitEditMode();
 toSwitchToSignupForm();
 toSwitchToLoginForm();
@@ -92,6 +97,13 @@ function toLogout() {
 function toAccessEditModeUI() {
   editMode.addEventListener("click", () => {
     console.log("event", event);
+    createHeaderForm.style.display = "block";
+    createEducationForm.style.display = "block";
+    createExperienceForm.style.display = "block";
+    createProjectForm.style.display = "block";
+    createSkillForm.style.display = "block";
+    exitEditMode.style.display = "block";
+    logoutButton.style.display = "none";
     fetch("http://localhost:3000/profile", {
       method: "GET",
       headers: {
@@ -106,11 +118,6 @@ function toAccessEditModeUI() {
         loginForm.style.display = "none";
         exitEditMode.style.display = "block";
         //   resumeContainer.style.display = "none";
-        const createHeaderForm = document.createElement("form");
-        const createProjectForm = document.createElement("form");
-        const createExperienceForm = document.createElement("form");
-        const createEducationForm = document.createElement("form");
-        const createSkillForm = document.createElement("form");
 
         createHeaderForm.innerHTML = `
       <form id="header-form" name="header-form">
@@ -185,128 +192,120 @@ function toAccessEditModeUI() {
         <input type="submit" />
       </form>
       `;
+        function toAutofillAllInputFieldsInEditMode() {
+          headerContainer.append(createHeaderForm);
+          technicalProjectsContainer.append(createProjectForm);
+          workExperiencesContainer.append(createExperienceForm);
+          educationContainer.append(createEducationForm);
+          technicalSkillsContainer.append(createSkillForm);
 
-        headerContainer.append(createHeaderForm);
-        technicalProjectsContainer.append(createProjectForm);
-        workExperiencesContainer.append(createExperienceForm);
-        educationContainer.append(createEducationForm);
-        technicalSkillsContainer.append(createSkillForm);
+          const personalWebsiteInputTag = document.querySelector(
+            'input[name="personal-website"]'
+          );
+          const personalGitHubInputTag = document.querySelector(
+            'input[name="personal-git-hub"]'
+          );
+          const personalLinkedInInputTag = document.querySelector(
+            'input[name="personal-linked-in"]'
+          );
+          const personalEmailInputTag = document.querySelector(
+            'input[name="personal-email"]'
+          );
+          const personalPhoneNumberInputTag = document.querySelector(
+            'input[name="personal-phone-number"]'
+          );
+          const personalMissionStatementInputTag = document.querySelector(
+            'input[name="personal-mission-statement"]'
+          );
 
-        const personalWebsiteInputTag = document.querySelector(
-          'input[name="personal-website"]'
-        );
-        const personalGitHubInputTag = document.querySelector(
-          'input[name="personal-git-hub"]'
-        );
-        const personalLinkedInInputTag = document.querySelector(
-          'input[name="personal-linked-in"]'
-        );
-        const personalEmailInputTag = document.querySelector(
-          'input[name="personal-email"]'
-        );
-        const personalPhoneNumberInputTag = document.querySelector(
-          'input[name="personal-phone-number"]'
-        );
-        const personalMissionStatementInputTag = document.querySelector(
-          'input[name="personal-mission-statement"]'
-        );
+          const projectNameInputTag = document.querySelector(
+            'input[name="project-name"]'
+          );
+          const projectDescriptionInputTag = document.querySelector(
+            'input[name="project-description"]'
+          );
+          const deployedAppInputTag = document.querySelector(
+            'input[name="deployed-app"]'
+          );
+          const projectGitHubInputTag = document.querySelector(
+            'input[name="project-git-hub"]'
+          );
+          const projectVideoInputTag = document.querySelector(
+            'input[name="project-video"]'
+          );
+          const projectDetailedDescriptionInputTag = document.querySelector(
+            'input[name="project-detailed-description"]'
+          );
 
-        const projectNameInputTag = document.querySelector(
-          'input[name="project-name"]'
-        );
-        const projectDescriptionInputTag = document.querySelector(
-          'input[name="project-description"]'
-        );
-        const deployedAppInputTag = document.querySelector(
-          'input[name="deployed-app"]'
-        );
-        const projectGitHubInputTag = document.querySelector(
-          'input[name="project-git-hub"]'
-        );
-        const projectVideoInputTag = document.querySelector(
-          'input[name="project-video"]'
-        );
-        const projectDetailedDescriptionInputTag = document.querySelector(
-          'input[name="project-detailed-description"]'
-        );
+          const jobTitleInputTag = document.querySelector(
+            'input[name="job-title"]'
+          );
+          const jobDateInputTag = document.querySelector(
+            'input[name="job-date"]'
+          );
+          const jobDescriptionInputTag = document.querySelector(
+            'input[name="job-description"]'
+          );
+          const jobLocationInputTag = document.querySelector(
+            'input[name="job-location"]'
+          );
+          const jobDetailedDescriptionInputTag = document.querySelector(
+            'input[name="job-detailed-description"]'
+          );
 
-        const jobTitleInputTag = document.querySelector(
-          'input[name="job-title"]'
-        );
-        const jobDateInputTag = document.querySelector(
-          'input[name="job-date"]'
-        );
-        const jobDescriptionInputTag = document.querySelector(
-          'input[name="job-description"]'
-        );
-        const jobLocationInputTag = document.querySelector(
-          'input[name="job-location"]'
-        );
-        const jobDetailedDescriptionInputTag = document.querySelector(
-          'input[name="job-detailed-description"]'
-        );
+          const educationNameInputTag = document.querySelector(
+            'input[name="education-name"]'
+          );
+          const educationDateInputTag = document.querySelector(
+            'input[name="education-date"]'
+          );
+          const educationDescriptionInputTag = document.querySelector(
+            'input[name="education-description"]'
+          );
 
-        const educationNameInputTag = document.querySelector(
-          'input[name="education-name"]'
-        );
-        const educationDateInputTag = document.querySelector(
-          'input[name="education-date"]'
-        );
-        const educationDescriptionInputTag = document.querySelector(
-          'input[name="education-description"]'
-        );
+          const skillDescriptionInputTag = document.querySelector(
+            'input[name="skill-description"]'
+          );
 
-        const skillDescriptionInputTag = document.querySelector(
-          'input[name="skill-description"]'
-        );
+          personalWebsiteInputTag.value = user.headers[0].personal_website;
+          personalGitHubInputTag.value = user.headers[0].git_hub;
+          personalLinkedInInputTag.value = user.headers[0].linked_in;
+          personalEmailInputTag.value = user.headers[0].email;
+          personalPhoneNumberInputTag.value = user.headers[0].phone_number;
+          personalMissionStatementInputTag.value =
+            user.headers[0].mission_statement;
 
-        function updateHeader() {
-          console.log("user", user);
-          console.log("website", user.headers[0].personal_website);
-          event.preventDefault();
+          user.technical_projects.map(project => {
+            console.log("project for input tags!", project);
+            projectNameInputTag.value = project.name;
+            projectDescriptionInputTag.value = project.description;
+            deployedAppInputTag.value = project.deployed_app;
+            projectGitHubInputTag.value = project.git_hub;
+            projectVideoInputTag.value = project.video;
+            projectDetailedDescriptionInputTag.value =
+              project.detailed_description;
+          });
 
-          console.log("input tag", personalWebsiteInputTag);
+          user.work_experiences.map(experience => {
+            console.log(experience);
+            jobTitleInputTag.value = experience.job_title;
+            jobDateInputTag.value = experience.date;
+            jobLocationInputTag.value = experience.location;
+            jobDescriptionInputTag.value = experience.description;
+            jobDetailedDescriptionInputTag.value =
+              experience.detailed_description;
+          });
+
+          user.educations.map(education => {
+            console.log(education);
+            educationNameInputTag.value = education.name;
+            educationDateInputTag.value = education.date;
+            educationDescriptionInputTag.value = education.description;
+          });
+
+          skillDescriptionInputTag.value = user.technical_skills[0].description;
         }
-
-        createHeaderForm.addEventListener("submit", updateHeader);
-
-        personalWebsiteInputTag.value = user.headers[0].personal_website;
-        personalGitHubInputTag.value = user.headers[0].git_hub;
-        personalLinkedInInputTag.value = user.headers[0].linked_in;
-        personalEmailInputTag.value = user.headers[0].email;
-        personalPhoneNumberInputTag.value = user.headers[0].phone_number;
-        personalMissionStatementInputTag.value =
-          user.headers[0].mission_statement;
-
-        user.technical_projects.map(project => {
-          console.log("project for input tags!", project);
-          projectNameInputTag.value = project.name;
-          projectDescriptionInputTag.value = project.description;
-          deployedAppInputTag.value = project.deployed_app;
-          projectGitHubInputTag.value = project.git_hub;
-          projectVideoInputTag.value = project.video;
-          projectDetailedDescriptionInputTag.value =
-            project.detailed_description;
-        });
-
-        user.work_experiences.map(experience => {
-          console.log(experience);
-          jobTitleInputTag.value = experience.job_title;
-          jobDateInputTag.value = experience.date;
-          jobLocationInputTag.value = experience.location;
-          jobDescriptionInputTag.value = experience.description;
-          jobDetailedDescriptionInputTag.value =
-            experience.detailed_description;
-        });
-
-        user.educations.map(education => {
-          console.log(education);
-          educationNameInputTag.value = education.name;
-          educationDateInputTag.value = education.date;
-          educationDescriptionInputTag.value = education.description;
-        });
-
-        skillDescriptionInputTag.value = user.technical_skills[0].description;
+        toAutofillAllInputFieldsInEditMode();
       })
       .catch(error => console.log(error));
   });
@@ -314,7 +313,13 @@ function toAccessEditModeUI() {
 
 function toExitEditMode() {
   exitEditMode.addEventListener("click", () => {
-    window.location.reload();
+    createHeaderForm.style.display = "none";
+    createEducationForm.style.display = "none";
+    createExperienceForm.style.display = "none";
+    createProjectForm.style.display = "none";
+    createSkillForm.style.display = "none";
+    exitEditMode.style.display = "none";
+    logoutButton.style.display = "block";
   });
 }
 
@@ -431,6 +436,15 @@ function toAccessUI() {
             missionStatement
           );
         });
+
+        function updateHeader() {
+          console.log("user", user);
+          console.log("website", user.headers[0].personal_website);
+          event.preventDefault();
+          console.log("input tag", personalWebsiteInputTag);
+        }
+
+        createHeaderForm.addEventListener("submit", updateHeader);
 
         user.technical_projects.map(project => {
           console.log("project", project);
