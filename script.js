@@ -15,26 +15,101 @@ const resetPasswordButton = document.querySelector("#reset-password-button");
 const enterPasswordInput = document.querySelector("#enter-password-input");
 const enterEmailInput = document.querySelector("#enter-email-input");
 const enterUsernameInput = document.querySelector("#enter-username-input");
-const headerContainer = document.querySelector(".header-container");
 const topContainer = document.querySelector(".top-container");
-const technicalProjectsContainer = document.querySelector(
-  ".technical-projects-container"
-);
-const workExperiencesContainer = document.querySelector(
-  ".work-experiences-container"
-);
-const educationContainer = document.querySelector(".education-container");
-const technicalSkillsContainer = document.querySelector(
-  ".technical-skills-container"
-);
 const editMode = document.querySelector("#edit-mode");
 const exitEditMode = document.querySelector("#exit-edit-mode");
 // const login_url = "http://localhost:3000/login"
-const createHeaderForm = document.createElement("form");
-const createProjectForm = document.createElement("form");
-const createExperienceForm = document.createElement("form");
-const createEducationForm = document.createElement("form");
-const createSkillForm = document.createElement("form");
+const headerForm = document.querySelector("#header-form");
+const projectForm = document.querySelector("#project-form");
+const experienceForm = document.querySelector("#experience-form");
+const educationForm = document.querySelector("#education-form");
+const skillForm = document.querySelector("#skill-form");
+
+const showHeaderContainer = document.querySelector(".show-header-container");
+const showTechnicalProjectsContainer = document.querySelector(
+  ".show-technical-projects-container"
+);
+const showWorkExperiencesContainer = document.querySelector(
+  ".show-work-experiences-container"
+);
+const showEducationContainer = document.querySelector(
+  ".show-education-container"
+);
+const showTechnicalSkillsContainer = document.querySelector(
+  ".show-technical-skills-container"
+);
+// hmm!!!
+const title = document.createElement("h3");
+const personalWebsite = document.createElement("p");
+const personalGitHub = document.createElement("p");
+const personalLinkedIn = document.createElement("p");
+const personalEmail = document.createElement("p");
+const personalNumber = document.createElement("p");
+const missionStatement = document.createElement("li");
+// inputs!!!!!!!
+const personalWebsiteInputTag = document.querySelector(
+  'input[name="personal-website"]'
+);
+const personalGitHubInputTag = document.querySelector(
+  'input[name="personal-git-hub"]'
+);
+const personalLinkedInInputTag = document.querySelector(
+  'input[name="personal-linked-in"]'
+);
+const personalEmailInputTag = document.querySelector(
+  'input[name="personal-email"]'
+);
+const personalPhoneNumberInputTag = document.querySelector(
+  'input[name="personal-phone-number"]'
+);
+const personalMissionStatementInputTag = document.querySelector(
+  'input[name="personal-mission-statement"]'
+);
+
+const projectNameInputTag = document.querySelector(
+  'input[name="project-name"]'
+);
+const projectDescriptionInputTag = document.querySelector(
+  'input[name="project-description"]'
+);
+const deployedAppInputTag = document.querySelector(
+  'input[name="deployed-app"]'
+);
+const projectGitHubInputTag = document.querySelector(
+  'input[name="project-git-hub"]'
+);
+const projectVideoInputTag = document.querySelector(
+  'input[name="project-video"]'
+);
+const projectDetailedDescriptionInputTag = document.querySelector(
+  'input[name="project-detailed-description"]'
+);
+
+const jobTitleInputTag = document.querySelector('input[name="job-title"]');
+const jobDateInputTag = document.querySelector('input[name="job-date"]');
+const jobDescriptionInputTag = document.querySelector(
+  'input[name="job-description"]'
+);
+const jobLocationInputTag = document.querySelector(
+  'input[name="job-location"]'
+);
+const jobDetailedDescriptionInputTag = document.querySelector(
+  'input[name="job-detailed-description"]'
+);
+
+const educationNameInputTag = document.querySelector(
+  'input[name="education-name"]'
+);
+const educationDateInputTag = document.querySelector(
+  'input[name="education-date"]'
+);
+const educationDescriptionInputTag = document.querySelector(
+  'input[name="education-description"]'
+);
+
+const skillDescriptionInputTag = document.querySelector(
+  'input[name="skill-description"]'
+);
 toExitEditMode();
 toSwitchToSignupForm();
 toSwitchToLoginForm();
@@ -91,11 +166,11 @@ function toLogout() {
 function toAccessEditModeUI() {
   editMode.addEventListener("click", () => {
     console.log("event", event);
-    createHeaderForm.style.display = "block";
-    createEducationForm.style.display = "block";
-    createExperienceForm.style.display = "block";
-    createProjectForm.style.display = "block";
-    createSkillForm.style.display = "block";
+    headerForm.style.display = "block";
+    educationForm.style.display = "block";
+    experienceForm.style.display = "block";
+    projectForm.style.display = "block";
+    skillForm.style.display = "block";
     exitEditMode.style.display = "block";
     editMode.style.display = "none";
     logoutButton.style.display = "none";
@@ -114,154 +189,7 @@ function toAccessEditModeUI() {
         exitEditMode.style.display = "block";
         //   resumeContainer.style.display = "none";
 
-        createHeaderForm.innerHTML = `
-      <form id="header-form" name="header-form">
-        <p>Modify Headers:</p>
-        <label for="personal-website">Personal Website:</label>
-        <input type="text" name="personal-website" placeholder="Put your site here" />
-        <label for="personal-git-hub">GitHub:</label>
-        <input type="text" name="personal-git-hub" placeholder="GitHub goes here" />
-        <label for="personal-linked-in">LinkedIn:</label>
-        <input type="text" name="personal-linked-in" placeholder="LinkedIn goes here" />
-        <label for="personal-email">Email:</label>
-        <input type="text" name="personal-email" placeholder="Email goes here" />
-        <label for="personal-phone-number">Phone Number:</label>
-        <input type="text" name="personal-phone-number" placeholder="Number goes here" />
-        <label for="personal-mission-statement">Mission Statement:</label>
-        <input type="text" name="personal-mission-statement" placeholder="Goals for this resume" />
-        <input type="submit" />
-      </form>
-      `;
-        createProjectForm.innerHTML = `
-      <form id="project-form" name="project-form">
-        <p>Add/Update Projects:</p>
-        <label for="project-name">Project Name:</label>
-        <input type="text" name="project-name" placeholder="Project name here" />
-        <label for="project-description">Project Description:</label>
-        <input type="text" name="project-description" placeholder="Description goes here" />
-        <label for="deployed-app">Deployed App Link:</label>
-        <input type="text" name="deployed-app" placeholder="Deployed app link here" />
-        <label for="project-git-hub">GitHub Link:</label>
-        <input type="text" name="project-git-hub" placeholder="Link to GitHub Project here" />
-        <label for="project-video">Video:</label>
-        <input type="text" name="project-video" placeholder="Video link here" />
-        <label for="project-detailed-description">Detailed Project Description:</label>
-        <input type="text" name="project-detailed-description" placeholder="Detailed description here" />
-        <input type="submit" />
-      </form>
-      `;
-        createExperienceForm.innerHTML = `
-      <form id="experience-form" name="experience-form">
-        <p>Add/Update Work Experience:</p>
-        <label for="job-title">Job Title:</label>
-        <input type="text" name="job-title" placeholder="Job title here" />
-        <label for="job-date">Date:</label>
-        <input type="text" name="job-date" placeholder="Jan 2018-Feb 2019" />
-        <label for="job-location">Location:</label>
-        <input type="text" name="job-location" placeholder="Location here" />
-        <label for="job-description">Description:</label>
-        <input type="text" name="job-description" placeholder="Description here" />
-        <label for="job-detailed-description">Detailed Description:</label>
-        <input type="text" name="job-detailed-description" placeholder="Detailed Description here" />
-        <input type="submit" />
-      </form>
-      `;
-
-        createEducationForm.innerHTML = `
-      <form id="education-form" name="education-form">
-        <p>Add/Update Education Deets:</p>
-        <label for="education-name">Educational Institution Name:</label>
-        <input type="text" name="education-name" placeholder="Education institution name here" />
-        <label for="education-date">Date:</label>
-        <input type="text" name="education-date" placeholder="Jan 2018-Feb 2019" />
-        <label for="education-description">Description:</label>
-        <input type="text" name="education-description" placeholder="Description here" />
-        <input type="submit" />
-      </form>
-      `;
-        createSkillForm.innerHTML = `
-      <form id="skill-form" name="skill-form">
-        <p>Add/Update Skill Details:</p>
-        <label for="skill-description">Description:</label>
-        <input type="text" name="skill-description" placeholder="Description here" />
-        <input type="submit" />
-      </form>
-      `;
         function toAutofillAllInputFieldsInEditMode() {
-          headerContainer.append(createHeaderForm);
-          technicalProjectsContainer.append(createProjectForm);
-          workExperiencesContainer.append(createExperienceForm);
-          educationContainer.append(createEducationForm);
-          technicalSkillsContainer.append(createSkillForm);
-
-          const personalWebsiteInputTag = document.querySelector(
-            'input[name="personal-website"]'
-          );
-          const personalGitHubInputTag = document.querySelector(
-            'input[name="personal-git-hub"]'
-          );
-          const personalLinkedInInputTag = document.querySelector(
-            'input[name="personal-linked-in"]'
-          );
-          const personalEmailInputTag = document.querySelector(
-            'input[name="personal-email"]'
-          );
-          const personalPhoneNumberInputTag = document.querySelector(
-            'input[name="personal-phone-number"]'
-          );
-          const personalMissionStatementInputTag = document.querySelector(
-            'input[name="personal-mission-statement"]'
-          );
-
-          const projectNameInputTag = document.querySelector(
-            'input[name="project-name"]'
-          );
-          const projectDescriptionInputTag = document.querySelector(
-            'input[name="project-description"]'
-          );
-          const deployedAppInputTag = document.querySelector(
-            'input[name="deployed-app"]'
-          );
-          const projectGitHubInputTag = document.querySelector(
-            'input[name="project-git-hub"]'
-          );
-          const projectVideoInputTag = document.querySelector(
-            'input[name="project-video"]'
-          );
-          const projectDetailedDescriptionInputTag = document.querySelector(
-            'input[name="project-detailed-description"]'
-          );
-
-          const jobTitleInputTag = document.querySelector(
-            'input[name="job-title"]'
-          );
-          const jobDateInputTag = document.querySelector(
-            'input[name="job-date"]'
-          );
-          const jobDescriptionInputTag = document.querySelector(
-            'input[name="job-description"]'
-          );
-          const jobLocationInputTag = document.querySelector(
-            'input[name="job-location"]'
-          );
-          const jobDetailedDescriptionInputTag = document.querySelector(
-            'input[name="job-detailed-description"]'
-          );
-
-          const educationNameInputTag = document.querySelector(
-            'input[name="education-name"]'
-          );
-          const educationDateInputTag = document.querySelector(
-            'input[name="education-date"]'
-          );
-          const educationDescriptionInputTag = document.querySelector(
-            'input[name="education-description"]'
-          );
-
-          const skillDescriptionInputTag = document.querySelector(
-            'input[name="skill-description"]'
-          );
-
           personalWebsiteInputTag.value = user.headers[0].personal_website;
           personalGitHubInputTag.value = user.headers[0].git_hub;
           personalLinkedInInputTag.value = user.headers[0].linked_in;
@@ -307,11 +235,11 @@ function toAccessEditModeUI() {
 }
 function toExitEditMode() {
   exitEditMode.addEventListener("click", () => {
-    createHeaderForm.style.display = "none";
-    createEducationForm.style.display = "none";
-    createExperienceForm.style.display = "none";
-    createProjectForm.style.display = "none";
-    createSkillForm.style.display = "none";
+    headerForm.style.display = "none";
+    educationForm.style.display = "none";
+    experienceForm.style.display = "none";
+    projectForm.style.display = "none";
+    skillForm.style.display = "none";
     exitEditMode.style.display = "none";
     editMode.style.display = "block";
     logoutButton.style.display = "block";
@@ -404,13 +332,7 @@ function toAccessUI() {
 
         function toShowHeader(header) {
           console.log("header", header);
-          const title = document.createElement("h3");
-          const personalWebsite = document.createElement("p");
-          const personalGitHub = document.createElement("p");
-          const personalLinkedIn = document.createElement("p");
-          const personalEmail = document.createElement("p");
-          const personalNumber = document.createElement("p");
-          const missionStatement = document.createElement("li");
+
           title.textContent = header.title;
           personalWebsite.innerHTML = `<a href="${header.personal_website}">Personal Website</a> | `;
           personalGitHub.innerHTML = `| <a href="${header.git_hub}">GitHub</a> |`;
@@ -418,7 +340,8 @@ function toAccessUI() {
           personalEmail.innerHTML = `| <a href="${header.email}">Email</a> |`;
           personalNumber.textContent = `| ${header.phone_number}`;
           missionStatement.textContent = header.mission_statement;
-          headerContainer.append(
+
+          showHeaderContainer.append(
             title,
             personalWebsite,
             personalGitHub,
@@ -438,7 +361,7 @@ function toAccessUI() {
           console.log("input tag", personalWebsiteInputTag);
         }
 
-        createHeaderForm.addEventListener("submit", updateHeader);
+        headerForm.addEventListener("submit", updateHeader);
 
         function toShowTechnicalProjects(project) {
           console.log("project", project);
@@ -463,7 +386,7 @@ function toAccessUI() {
           projectDetailedDescription.id = "project-paragraph-li";
           projectDetailedDescription.textContent = project.detailed_description;
 
-          technicalProjectsContainer.append(
+          showTechnicalProjectsContainer.append(
             technicalProjects,
             projectName,
             projectDescription,
@@ -491,7 +414,7 @@ function toAccessUI() {
           experienceDetailedDescription.textContent =
             experience.detailed_description;
 
-          workExperiencesContainer.append(
+          showWorkExperiencesContainer.append(
             workExperiences,
             experienceJobTitle,
             experienceDate,
@@ -513,7 +436,7 @@ function toAccessUI() {
           educationDate.textContent = education.date;
           educationDescription.textContent = education.description;
 
-          educationContainer.append(
+          showEducationContainer.append(
             educations,
             educationName,
             educationDate,
@@ -529,7 +452,10 @@ function toAccessUI() {
 
           skillDescription.textContent = skill.description;
 
-          technicalSkillsContainer.append(technicalSkills, skillDescription);
+          showTechnicalSkillsContainer.append(
+            technicalSkills,
+            skillDescription
+          );
         }
 
         user.technical_skills.map(toShowTechnicalSkills);

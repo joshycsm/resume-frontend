@@ -72,38 +72,159 @@
     <button id="exit-edit-mode" style="display: none;">Exit Edit Mode</button>
     <button id="logout-button" style="display: none">Logout</button>
 
-    <!-- <form id="header-form" name="header-form">
-      <p>Modify Headers</p>
-      <label for="personal_website">Personal Website:</label>
-      <input
-        type="text"
-        name="personal_website"
-        placeholder="Put your site here"
-      />
-      <label for="git_hub">GitHub:</label>
-      <input type="text" name="git_hub" placeholder="GitHub goes here" />
-      <label for="linked_in">LinkedIn:</label>
-      <input type="text" name="linked_in" placeholder="LinkedIn goes here" />
-      <label for="email">Email:</label>
-      <input type="text" name="email" placeholder="Email goes here" />
-      <label for="phone_number">Phone Number:</label>
-      <input type="text" name="Phone Number" placeholder="Number goes here" />
-      <label for="mission_statement">Mission Statement:</label>
-      <input
-        type="text"
-        name="mission_statement"
-        placeholder="Goals for this resume"
-      />
-      <input type="submit" />
-    </form> -->
-
     <div class="resume-container">
       <div class="top-container"></div>
-      <div class="header-container"></div>
-      <div class="technical-projects-container"></div>
-      <div class="work-experiences-container"></div>
-      <div class="education-container"></div>
-      <div class="technical-skills-container"></div>
+      <div class="header-container">
+        <div class="show-header-container"></div>
+        <form id="header-form" name="header-form">
+          <p>Modify Headers:</p>
+          <label for="personal-website">Personal Website:</label>
+          <input
+            type="text"
+            name="personal-website"
+            placeholder="Put your site here"
+          />
+          <label for="personal-git-hub">GitHub:</label>
+          <input
+            type="text"
+            name="personal-git-hub"
+            placeholder="GitHub goes here"
+          />
+          <label for="personal-linked-in">LinkedIn:</label>
+          <input
+            type="text"
+            name="personal-linked-in"
+            placeholder="LinkedIn goes here"
+          />
+          <label for="personal-email">Email:</label>
+          <input
+            type="text"
+            name="personal-email"
+            placeholder="Email goes here"
+          />
+          <label for="personal-phone-number">Phone Number:</label>
+          <input
+            type="text"
+            name="personal-phone-number"
+            placeholder="Number goes here"
+          />
+          <label for="personal-mission-statement">Mission Statement:</label>
+          <input
+            type="text"
+            name="personal-mission-statement"
+            placeholder="Goals for this resume"
+          />
+          <input type="submit" />
+        </form>
+      </div>
+      <div class="technical-projects-container">
+        <div class="show-technical-projects-container"></div>
+        <form id="project-form" name="project-form">
+          <p>Add/Update Projects:</p>
+          <label for="project-name">Project Name:</label>
+          <input
+            type="text"
+            name="project-name"
+            placeholder="Project name here"
+          />
+          <label for="project-description">Project Description:</label>
+          <input
+            type="text"
+            name="project-description"
+            placeholder="Description goes here"
+          />
+          <label for="deployed-app">Deployed App Link:</label>
+          <input
+            type="text"
+            name="deployed-app"
+            placeholder="Deployed app link here"
+          />
+          <label for="project-git-hub">GitHub Link:</label>
+          <input
+            type="text"
+            name="project-git-hub"
+            placeholder="Link to GitHub Project here"
+          />
+          <label for="project-video">Video:</label>
+          <input
+            type="text"
+            name="project-video"
+            placeholder="Video link here"
+          />
+          <label for="project-detailed-description"
+            >Detailed Project Description:</label
+          >
+          <input
+            type="text"
+            name="project-detailed-description"
+            placeholder="Detailed description here"
+          />
+          <input type="submit" />
+        </form>
+      </div>
+      <div class="work-experiences-container">
+        <div class="show-work-experiences-container"></div>
+        <form id="experience-form" name="experience-form">
+          <p>Add/Update Work Experience:</p>
+          <label for="job-title">Job Title:</label>
+          <input type="text" name="job-title" placeholder="Job title here" />
+          <label for="job-date">Date:</label>
+          <input type="text" name="job-date" placeholder="Jan 2018-Feb 2019" />
+          <label for="job-location">Location:</label>
+          <input type="text" name="job-location" placeholder="Location here" />
+          <label for="job-description">Description:</label>
+          <input
+            type="text"
+            name="job-description"
+            placeholder="Description here"
+          />
+          <label for="job-detailed-description">Detailed Description:</label>
+          <input
+            type="text"
+            name="job-detailed-description"
+            placeholder="Detailed Description here"
+          />
+          <input type="submit" />
+        </form>
+      </div>
+      <div class="education-container">
+        <div class="show-education-container"></div>
+        <form id="education-form" name="education-form">
+          <p>Add/Update Education Deets:</p>
+          <label for="education-name">Educational Institution Name:</label>
+          <input
+            type="text"
+            name="education-name"
+            placeholder="Education institution name here"
+          />
+          <label for="education-date">Date:</label>
+          <input
+            type="text"
+            name="education-date"
+            placeholder="Jan 2018-Feb 2019"
+          />
+          <label for="education-description">Description:</label>
+          <input
+            type="text"
+            name="education-description"
+            placeholder="Description here"
+          />
+          <input type="submit" />
+        </form>
+      </div>
+      <div class="technical-skills-container">
+        <div class="show-technical-skills-container"></div>
+        <form id="skill-form" name="skill-form">
+          <p>Add/Update Skill Details:</p>
+          <label for="skill-description">Description:</label>
+          <input
+            type="text"
+            name="skill-description"
+            placeholder="Description here"
+          />
+          <input type="submit" />
+        </form>
+      </div>
     </div>
 
     <!-- <h2>Technical Projects</h2>
