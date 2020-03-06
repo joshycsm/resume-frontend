@@ -24,6 +24,12 @@ const projectForm = document.querySelector("#project-form");
 const experienceForm = document.querySelector("#experience-form");
 const educationForm = document.querySelector("#education-form");
 const skillForm = document.querySelector("#skill-form");
+// More Forms
+const createHeaderForm = document.querySelector("#create-header-form");
+const createProjectForm = document.querySelector("#create-project-form");
+const createExperienceForm = document.querySelector("#create-experience-form");
+const createEducationForm = document.querySelector("#create-education-form");
+const createSkillForm = document.querySelector("#create-skill-form");
 
 const showHeaderContainer = document.querySelector(".show-header-container");
 const showTechnicalProjectsContainer = document.querySelector(
@@ -71,8 +77,79 @@ const educationDate = document.createElement("p");
 const educationDescription = document.createElement("li");
 
 const skillDescription = document.createElement("p");
+// Create Elements For Create Form
+const createPersonalTitle = document.createElement("h3");
+const createPersonalWebsite = document.createElement("p");
+const createPersonalGitHub = document.createElement("p");
+const createPersonalLinkedIn = document.createElement("p");
+const createPersonalEmail = document.createElement("p");
+const createPersonalNumber = document.createElement("p");
+const createMissionStatement = document.createElement("li");
 
-// inputs!!!!!!!
+const createProjectName = document.createElement("p");
+const createProjectDescription = document.createElement("p");
+const createProjectDeployedApp = document.createElement("p");
+const createProjectGitHub = document.createElement("p");
+const createProjectVideo = document.createElement("p");
+const createProjectDetailedDescription = document.createElement("li");
+
+const createExperienceJobTitle = document.createElement("p");
+const createExperienceDate = document.createElement("p");
+const createExperienceLocation = document.createElement("p");
+const createExperienceDescription = document.createElement("p");
+const createExperienceDetailedDescription = document.createElement("li");
+
+const createEducationName = document.createElement("p");
+const createEducationDate = document.createElement("p");
+const createEducationDescription = document.createElement("li");
+
+const createSkillDescription = document.createElement("p");
+
+// Even More Inputs!
+const createPersonalTitleInputTag = document.querySelector(
+  "#create-personal-title"
+);
+const createPersonalWebsiteInputTag = document.querySelector(
+  "#create-personal-website"
+);
+const createPersonalGitHubInputTag = document.querySelector(
+  "#create-personal-git-hub"
+);
+const createPersonalLinkedInInputTag = document.querySelector(
+  "#create-personal-linked-in"
+);
+const createPersonalEmailInputTag = document.querySelector(
+  "#create-personal-email"
+);
+const createPersonalPhoneNumberInputTag = document.querySelector(
+  "#create-personal-phone-number"
+);
+const createPersonalMissionStatementInputTag = document.querySelector(
+  "#create-personal-mission-statement"
+);
+
+const createProjectNameInputTag = document.querySelector(
+  "#create-project-name"
+);
+const createProjectDescriptionInputTag = document.querySelector(
+  "#create-project-description"
+);
+const createProjectDeployedAppInputTag = document.querySelector(
+  "#create-deployed-app"
+);
+const createProjectGitHubInputTag = document.querySelector(
+  "#create-project-git-hub"
+);
+const createProjectVideoInputTag = document.querySelector(
+  "#create-project-video"
+);
+const createProjectDetailedDescriptionInputTag = document.querySelector(
+  "#create-project-detailed-description"
+);
+// Inputs!!!!!!!
+const personalTitleInputTag = document.querySelector(
+  'input[name="personal-title"]'
+);
 const personalWebsiteInputTag = document.querySelector(
   'input[name="personal-website"]'
 );
@@ -281,6 +358,7 @@ function toAccessEditMode() {
         //   resumeContainer.style.display = "none";
 
         function toAutofillAllInputFieldsInEditMode() {
+          personalTitleInputTag.value = user.headers[0].title;
           personalWebsiteInputTag.value = user.headers[0].personal_website;
           personalGitHubInputTag.value = user.headers[0].git_hub;
           personalLinkedInInputTag.value = user.headers[0].linked_in;
@@ -374,14 +452,33 @@ function toAccessResume() {
 
         function createHeader() {
           event.preventDefault();
+          console.log("hi");
+
+          createPersonalTitle.textContent = createPersonalTitleInputTag.value;
+          createPersonalWebsite.innerHTML = `<a href="${createPersonalWebsiteInputTag.value}">Personal Website</a> | `;
+          createPersonalGitHub.innerHTML = `| <a href="${createPersonalGitHubInputTag.value}">GitHub</a> |`;
+          createPersonalLinkedIn.innerHTML = `| <a href="${createPersonalLinkedInInputTag.value}">LinkedIn</a> |`;
+          createPersonalEmail.innerHTML = `| <a href="${createPersonalEmailInputTag.value}">Email</a> |`;
+          createPersonalNumber.textContent = `| ${createPersonalPhoneNumberInputTag.value}`;
+          createMissionStatement.textContent =
+            createPersonalMissionStatementInputTag.value;
+
+          showHeaderContainer.append(
+            createPersonalTitle,
+            createPersonalWebsite,
+            createPersonalGitHub,
+            createPersonalLinkedIn,
+            createPersonalEmail,
+            createPersonalNumber,
+            createMissionStatement
+          );
         }
-        // createHeaderForm.addEventListener("submit", createHeader);
+        createHeaderForm.addEventListener("submit", createHeader);
 
         function updateHeader() {
           event.preventDefault();
-          // console.log("user", user);
-          // console.log("website", user.headers[0].personal_website);
           console.log("input tag", personalWebsiteInputTag);
+          title.textContent = personalTitleInputTag.value;
           personalWebsite.innerHTML = `<a href="${personalWebsiteInputTag.value}">Personal Website</a> | `;
           personalGitHub.innerHTML = `| <a href="${personalGitHubInputTag.value}">GitHub</a> |`;
           personalLinkedIn.innerHTML = `| <a href="${personalLinkedInInputTag.value}">LinkedIn</a> |`;
@@ -398,6 +495,26 @@ function toAccessResume() {
           );
         }
         headerForm.addEventListener("submit", updateHeader);
+
+        function createTechnicalProjects() {
+          event.preventDefault();
+          event.preventDefault();
+          createProjectName.innerHTML = `<strong>${createProjectNameInputTag.value}</strong> -`;
+          createProjectDescription.innerHTML = `<em>${createProjectDescriptionInputTag.value}</em>`;
+          createProjectDeployedApp.innerHTML = `<a href="${createProjectDeployedAppInputTag.value}">Deployed App</a> (username: <em>user</em> , password: <em>123</em> )`;
+          createProjectGitHub.innerHTML = `GitHub: <a href="${createProjectGitHubInputTag.value}">${createProjectGitHubInputTag.value}</a> | <a href="${createProjectVideoInputTag.value}">Walk-through Video</a>`;
+          createProjectDetailedDescription.textContent =
+            createProjectDetailedDescriptionInputTag.value;
+
+          showTechnicalProjectsContainer.append(
+            createProjectName,
+            createProjectDescription,
+            createProjectDeployedApp,
+            createProjectGitHub,
+            createProjectDetailedDescription
+          );
+        }
+        createProjectForm.addEventListener("submit", createTechnicalProjects);
 
         function updateTechnicalProjects() {
           event.preventDefault();
@@ -439,6 +556,11 @@ function toAccessResume() {
         }
         user.technical_projects.map(toShowTechnicalProjects);
 
+        function createWorkExperience() {
+          event.preventDefault();
+        }
+        createExperienceForm.addEventListener("submit", createWorkExperience);
+
         function updateWorkExperience() {
           event.preventDefault();
           experienceJobTitle.innerHTML = `<strong>${jobTitleInputTag.value}</strong>`;
@@ -471,6 +593,11 @@ function toAccessResume() {
         }
         user.work_experiences.map(toShowWorkExperience);
 
+        function createEducation() {
+          event.preventDefault();
+        }
+        createEducationForm.addEventListener("submit", createEducation);
+
         function updateEducation() {
           event.preventDefault();
           educationName.innerHTML = `<strong>${educationNameInputTag.value}</strong>`;
@@ -493,6 +620,11 @@ function toAccessResume() {
           );
         }
         user.educations.map(toShowEducation);
+
+        function createTechnicalSkills() {
+          event.preventDefault();
+        }
+        createSkillForm.addEventListener("submit", createTechnicalSkills);
 
         function updateTechnicalSkills() {
           event.preventDefault();
