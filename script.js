@@ -146,6 +146,32 @@ const createProjectVideoInputTag = document.querySelector(
 const createProjectDetailedDescriptionInputTag = document.querySelector(
   "#create-project-detailed-description"
 );
+
+const createJobTitleInputTag = document.querySelector("#create-job-title");
+const createJobDateInputTag = document.querySelector("#create-job-date");
+const createJobLocationInputTag = document.querySelector(
+  "#create-job-location"
+);
+const createJobDescriptionInputTag = document.querySelector(
+  "#create-job-description"
+);
+const createJobDetailedDescriptionInputTag = document.querySelector(
+  "#create-job-detailed-description"
+);
+
+const createEducationNameInputTag = document.querySelector(
+  "#create-education-name"
+);
+const createEducationDateInputTag = document.querySelector(
+  "#create-education-date"
+);
+const createEducationDescriptionInputTag = document.querySelector(
+  "#create-education-description"
+);
+
+const createSkillDescriptionInputTag = document.querySelector(
+  "#create-skill-description"
+);
 // Inputs!!!!!!!
 const personalTitleInputTag = document.querySelector(
   'input[name="personal-title"]'
@@ -507,6 +533,7 @@ function toAccessResume() {
             createProjectDetailedDescriptionInputTag.value;
 
           showTechnicalProjectsContainer.append(
+            technicalProjects,
             createProjectName,
             createProjectDescription,
             createProjectDeployedApp,
@@ -558,6 +585,23 @@ function toAccessResume() {
 
         function createWorkExperience() {
           event.preventDefault();
+          createExperienceJobTitle.innerHTML = `<strong>${createJobTitleInputTag.value}</strong>`;
+          createExperienceDate.textContent = createJobDateInputTag.value;
+          createExperienceLocation.textContent =
+            createJobLocationInputTag.value;
+          createExperienceDescription.textContent =
+            createJobDescriptionInputTag.value;
+          createExperienceDetailedDescription.textContent =
+            createJobDetailedDescriptionInputTag.value;
+
+          showWorkExperiencesContainer.append(
+            workExperiences,
+            createExperienceJobTitle,
+            createExperienceDate,
+            createExperienceLocation,
+            createExperienceDescription,
+            createExperienceDetailedDescription
+          );
         }
         createExperienceForm.addEventListener("submit", createWorkExperience);
 
@@ -569,6 +613,15 @@ function toAccessResume() {
           experienceDescription.textContent = jobDescriptionInputTag.value;
           experienceDetailedDescription.textContent =
             jobDetailedDescriptionInputTag.value;
+
+          showWorkExperiencesContainer.append(
+            workExperiences,
+            experienceJobTitle,
+            experienceDate,
+            experienceLocation,
+            experienceDescription,
+            experienceDetailedDescription
+          );
         }
         experienceForm.addEventListener("submit", updateWorkExperience);
 
@@ -595,6 +648,17 @@ function toAccessResume() {
 
         function createEducation() {
           event.preventDefault();
+          createEducationName.innerHTML = `<strong>${createEducationNameInputTag.value}</strong>`;
+          createEducationDate.textContent = createEducationDateInputTag.value;
+          createEducationDescription.textContent =
+            createEducationDescriptionInputTag.value;
+
+          showEducationContainer.append(
+            educations,
+            createEducationName,
+            createEducationDate,
+            createEducationDescription
+          );
         }
         createEducationForm.addEventListener("submit", createEducation);
 
@@ -623,6 +687,13 @@ function toAccessResume() {
 
         function createTechnicalSkills() {
           event.preventDefault();
+          createSkillDescription.textContent =
+            createSkillDescriptionInputTag.value;
+
+          showTechnicalSkillsContainer.append(
+            technicalSkills,
+            createSkillDescription
+          );
         }
         createSkillForm.addEventListener("submit", createTechnicalSkills);
 
