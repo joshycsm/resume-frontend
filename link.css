@@ -222,6 +222,23 @@ button {
   font-size: small;
 }
 
+#experience-form {
+  display: none;
+}
+
+#education-form {
+  display: none;
+}
+#skill-form {
+  display: none;
+}
+#header-form {
+  display: none;
+}
+#project-form {
+  display: none;
+}
+
 /* * {
   box-sizing: border-box;
 } */

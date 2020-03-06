@@ -163,6 +163,72 @@ function toLogout() {
     loginContainer.style.display = "block";
   });
 }
+
+function toExitEditMode() {
+  exitEditMode.addEventListener("click", () => {
+    headerForm.style.display = "none";
+    educationForm.style.display = "none";
+    experienceForm.style.display = "none";
+    projectForm.style.display = "none";
+    skillForm.style.display = "none";
+    exitEditMode.style.display = "none";
+    editMode.style.display = "block";
+    logoutButton.style.display = "block";
+  });
+}
+function toSignupUser() {
+  signupForm.addEventListener("submit", () => {
+    event.preventDefault();
+    let signupName = event.target.name.value;
+    let signupUsername = event.target.username.value;
+    let signupPassword = event.target.username.value;
+    console.log(signupName, signupUsername, signupPassword);
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: signupName,
+        username: signupUsername,
+        password: signupPassword
+      })
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log("signup submission", result);
+        signupForm.reset();
+      });
+  });
+}
+function toLoginUser() {
+  loginForm.addEventListener("submit", () => {
+    event.preventDefault();
+    //   console.log("username:", event.target.username.value);
+    //   console.log("password:", event.target.password.value);
+    let loginUsername = event.target.username.value;
+    let loginPassword = event.target.password.value;
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user: {
+          username: loginUsername,
+          password: loginPassword
+        }
+      })
+    })
+      .then(response => response.json())
+      .then(result => {
+        window.location.reload();
+        loginForm.reset();
+        localStorage.setItem("token", result.token);
+      })
+      .catch(error => console.log(error));
+  });
+}
 function toAccessEditModeUI() {
   editMode.addEventListener("click", () => {
     console.log("event", event);
@@ -229,71 +295,6 @@ function toAccessEditModeUI() {
           skillDescriptionInputTag.value = user.technical_skills[0].description;
         }
         toAutofillAllInputFieldsInEditMode();
-      })
-      .catch(error => console.log(error));
-  });
-}
-function toExitEditMode() {
-  exitEditMode.addEventListener("click", () => {
-    headerForm.style.display = "none";
-    educationForm.style.display = "none";
-    experienceForm.style.display = "none";
-    projectForm.style.display = "none";
-    skillForm.style.display = "none";
-    exitEditMode.style.display = "none";
-    editMode.style.display = "block";
-    logoutButton.style.display = "block";
-  });
-}
-function toSignupUser() {
-  signupForm.addEventListener("submit", () => {
-    event.preventDefault();
-    let signupName = event.target.name.value;
-    let signupUsername = event.target.username.value;
-    let signupPassword = event.target.username.value;
-    console.log(signupName, signupUsername, signupPassword);
-    fetch("http://localhost:3000/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: signupName,
-        username: signupUsername,
-        password: signupPassword
-      })
-    })
-      .then(response => response.json())
-      .then(result => {
-        console.log("signup submission", result);
-        signupForm.reset();
-      });
-  });
-}
-function toLoginUser() {
-  loginForm.addEventListener("submit", () => {
-    event.preventDefault();
-    //   console.log("username:", event.target.username.value);
-    //   console.log("password:", event.target.password.value);
-    let loginUsername = event.target.username.value;
-    let loginPassword = event.target.password.value;
-    fetch("http://localhost:3000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        user: {
-          username: loginUsername,
-          password: loginPassword
-        }
-      })
-    })
-      .then(response => response.json())
-      .then(result => {
-        window.location.reload();
-        loginForm.reset();
-        localStorage.setItem("token", result.token);
       })
       .catch(error => console.log(error));
   });
