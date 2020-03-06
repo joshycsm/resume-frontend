@@ -3,104 +3,77 @@
   box-sizing: border-box;
   font-family: "Spartan", sans-serif;
 }
-
-#header-form {
-  /* display: none; */
-}
-
 #project-info {
   display: inline-block;
   padding-left: 0.8em;
 }
-
 #git-hub:nth-of-type(2) {
   padding-left: 0em;
 }
-
 #git-hub {
   display: inline-block;
   padding-left: 0.8em;
 }
-
 #project-paragraph-info {
   padding-left: 0.8em;
 }
-
 #project-paragraph-li {
   padding-left: 2.2em;
 }
-
 .work-experiences-container p {
   padding-left: 0.8em;
 }
-
 .work-experiences-container li {
   padding-left: 2.2em;
 }
-
 .work-experiences-container form {
   padding-left: 0.8em;
 }
-
 .work-experiences-container form p {
   padding-left: 0em;
 }
-
 .header-container li {
   padding-left: 0.8em;
 }
-
 .education-container p {
   padding-left: 0.8em;
 }
-
 .education-container form {
   padding-left: 0.8em;
 }
-
 .education-container form p {
   padding-left: 0em;
 }
-
 .education-container li {
   padding-left: 2.2em;
 }
-
 .technical-skills-container p {
   padding-left: 0.8em;
 }
-
 .technical-skills-container form {
   padding-left: 0.8em;
 }
-
 .technical-skills-container form p {
   padding-left: 0em;
 }
-
 .top-container {
   text-align: center;
   /* font-weight: bolder; */
 }
-
 .header-container h3 {
   font-style: italic;
 }
-
 .header-container {
   text-align: center;
   padding-left: 0.8rem;
 }
-
 .header-container li {
   text-align: left;
   padding-left: 2.5em;
 }
-
 .header-container form {
   padding: 0em;
 }
-
 h2 {
   background-color: rgb(162, 206, 245);
   border-radius: 2em;
@@ -110,104 +83,75 @@ h2 {
   margin-block-end: 0.82em;
   font-size: larger;
 }
-
 .header-container p {
   display: inline-block;
 }
-
 .header-container li {
   list-style: none;
 }
-
 .work-experiences-container {
   padding: 0.5em;
 }
-
 .technical-skills-container {
   padding: 0.5em;
 }
-
 .education-container {
   padding: 0.5em;
 }
-
 #project-info:nth-of-type(2) {
   padding-left: 0em;
 }
-
 .technical-projects-container form {
   padding: 0.8rem;
 }
-
 .technical-projects-container form p {
   padding: 0rem;
 }
-
 .technical-projects-container {
   padding: 0.7rem;
 }
-
 .technical-projects-container li {
   /* padding: 1.2rem; */
   padding-left: 1.2rem;
   margin: 0.1rem;
 }
-
 .technical-projects-container h3 {
   margin: 0.1rem;
 }
-
 .technical-projects-container p {
   margin: 0.1rem;
 }
-
 h2 {
   text-transform: uppercase;
   color: rgb(65, 60, 60);
 }
-
 h1 {
   color: darkblue;
 }
-
 h3 {
   font-weight: 100;
 }
-
 a:visited {
   color: lightseagreen;
 }
-
 a {
   color: darkblue;
 }
-
 button {
   padding: 0.15em;
 }
-
-#paragraph-info {
-  /* padding-left: 0.5em; */
-}
-/* #logout {
-  display: none;
-} */
-
 #login-form input {
   display: block;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
   width: 100%;
 }
-
 .login-container {
   width: 250px;
 }
-
 #login-form {
   width: 250px;
 }
-
 #signup-form input {
   display: block;
   padding: 0.5rem;
@@ -217,15 +161,12 @@ button {
 .signup-container {
   width: 250px;
 }
-
 .login-switch-mode {
   font-size: small;
 }
-
 #experience-form {
   display: none;
 }
-
 #education-form {
   display: none;
 }
@@ -238,7 +179,3 @@ button {
 #project-form {
   display: none;
 }
-
-/* * {
-  box-sizing: border-box;
-} */

@@ -39,6 +39,12 @@ const showTechnicalSkillsContainer = document.querySelector(
   ".show-technical-skills-container"
 );
 // hmm!!!
+const loggedInUser = document.createElement("h1");
+const technicalProjects = document.createElement("h2");
+const workExperiences = document.createElement("h2");
+const educations = document.createElement("h2");
+const technicalSkills = document.createElement("h2");
+
 const title = document.createElement("h3");
 const personalWebsite = document.createElement("p");
 const personalGitHub = document.createElement("p");
@@ -46,6 +52,26 @@ const personalLinkedIn = document.createElement("p");
 const personalEmail = document.createElement("p");
 const personalNumber = document.createElement("p");
 const missionStatement = document.createElement("li");
+
+const projectName = document.createElement("p");
+const projectDescription = document.createElement("p");
+const projectDeployedApp = document.createElement("p");
+const projectGitHub = document.createElement("p");
+const projectVideo = document.createElement("p");
+const projectDetailedDescription = document.createElement("li");
+
+const experienceJobTitle = document.createElement("p");
+const experienceDate = document.createElement("p");
+const experienceLocation = document.createElement("p");
+const experienceDescription = document.createElement("p");
+const experienceDetailedDescription = document.createElement("li");
+
+const educationName = document.createElement("p");
+const educationDate = document.createElement("p");
+const educationDescription = document.createElement("li");
+
+const skillDescription = document.createElement("p");
+
 // inputs!!!!!!!
 const personalWebsiteInputTag = document.querySelector(
   'input[name="personal-website"]'
@@ -72,7 +98,7 @@ const projectNameInputTag = document.querySelector(
 const projectDescriptionInputTag = document.querySelector(
   'input[name="project-description"]'
 );
-const deployedAppInputTag = document.querySelector(
+const projectDeployedAppInputTag = document.querySelector(
   'input[name="deployed-app"]'
 );
 const projectGitHubInputTag = document.querySelector(
@@ -117,8 +143,8 @@ toSignupUser();
 toLoginUser();
 ifForgotPassword();
 ifRememberPassword();
-toAccessUI();
-toAccessEditModeUI();
+toAccessResume();
+toAccessEditMode();
 function ifRememberPassword() {
   rememberPasswordButton.addEventListener("click", () => {
     enterPasswordInput.style.display = "block";
@@ -163,7 +189,6 @@ function toLogout() {
     loginContainer.style.display = "block";
   });
 }
-
 function toExitEditMode() {
   exitEditMode.addEventListener("click", () => {
     headerForm.style.display = "none";
@@ -229,9 +254,9 @@ function toLoginUser() {
       .catch(error => console.log(error));
   });
 }
-function toAccessEditModeUI() {
+function toAccessEditMode() {
   editMode.addEventListener("click", () => {
-    console.log("event", event);
+    // console.log("event", event);
     headerForm.style.display = "block";
     educationForm.style.display = "block";
     experienceForm.style.display = "block";
@@ -265,10 +290,10 @@ function toAccessEditModeUI() {
             user.headers[0].mission_statement;
 
           user.technical_projects.map(project => {
-            console.log("project for input tags!", project);
+            // console.log("project for input tags!", project);
             projectNameInputTag.value = project.name;
             projectDescriptionInputTag.value = project.description;
-            deployedAppInputTag.value = project.deployed_app;
+            projectDeployedAppInputTag.value = project.deployed_app;
             projectGitHubInputTag.value = project.git_hub;
             projectVideoInputTag.value = project.video;
             projectDetailedDescriptionInputTag.value =
@@ -276,7 +301,7 @@ function toAccessEditModeUI() {
           });
 
           user.work_experiences.map(experience => {
-            console.log(experience);
+            // console.log(experience);
             jobTitleInputTag.value = experience.job_title;
             jobDateInputTag.value = experience.date;
             jobLocationInputTag.value = experience.location;
@@ -286,7 +311,7 @@ function toAccessEditModeUI() {
           });
 
           user.educations.map(education => {
-            console.log(education);
+            // console.log(education);
             educationNameInputTag.value = education.name;
             educationDateInputTag.value = education.date;
             educationDescriptionInputTag.value = education.description;
@@ -299,7 +324,7 @@ function toAccessEditModeUI() {
       .catch(error => console.log(error));
   });
 }
-function toAccessUI() {
+function toAccessResume() {
   if (localStorage.token) {
     editMode.style.display = "block";
     loginForm.style.display = "none";
@@ -314,15 +339,8 @@ function toAccessUI() {
     })
       .then(response => response.json())
       .then(user => {
-        console.log("user", user);
-
+        // console.log("user", user);
         toLogout();
-
-        const loggedInUser = document.createElement("h1");
-        const technicalProjects = document.createElement("h2");
-        const workExperiences = document.createElement("h2");
-        const educations = document.createElement("h2");
-        const technicalSkills = document.createElement("h2");
         loggedInUser.textContent = user.name;
         technicalProjects.textContent = "Technical Projects";
         workExperiences.textContent = "Work Experience";
@@ -330,9 +348,8 @@ function toAccessUI() {
         technicalSkills.textContent = "Technical Skills";
 
         topContainer.append(loggedInUser);
-
         function toShowHeader(header) {
-          console.log("header", header);
+          // console.log("header", header);
 
           title.textContent = header.title;
           personalWebsite.innerHTML = `<a href="${header.personal_website}">Personal Website</a> | `;
@@ -352,26 +369,43 @@ function toAccessUI() {
             missionStatement
           );
         }
-
         user.headers.map(toShowHeader);
 
         function updateHeader() {
-          console.log("user", user);
-          console.log("website", user.headers[0].personal_website);
           event.preventDefault();
+          // console.log("user", user);
+          // console.log("website", user.headers[0].personal_website);
           console.log("input tag", personalWebsiteInputTag);
+          personalWebsite.innerHTML = `<a href="${personalWebsiteInputTag.value}">Personal Website</a> | `;
+          personalGitHub.innerHTML = `| <a href="${personalGitHubInputTag.value}">GitHub</a> |`;
+          personalLinkedIn.innerHTML = `| <a href="${personalLinkedInInputTag.value}">LinkedIn</a> |`;
+          personalEmail.innerHTML = `| <a href="${personalEmailInputTag.value}">Email</a> |`;
+          personalNumber.textContent = `| ${personalPhoneNumberInputTag.value}`;
+          missionStatement.textContent = personalMissionStatementInputTag.value;
+          console.log(
+            personalWebsite,
+            personalGitHub,
+            personalLinkedIn,
+            personalEmail,
+            personalNumber,
+            missionStatement
+          );
         }
-
         headerForm.addEventListener("submit", updateHeader);
 
+        function updateTechnicalProjects() {
+          event.preventDefault();
+          projectName.innerHTML = `<strong>${projectNameInputTag.value}</strong> -`;
+          projectDescription.innerHTML = `<em>${projectDescriptionInputTag.value}</em>`;
+          projectDeployedApp.innerHTML = `<a href="${projectDeployedAppInputTag.value}">Deployed App</a> (username: <em>user</em> , password: <em>123</em> )`;
+          projectGitHub.innerHTML = `GitHub: <a href="${projectGitHubInputTag.value}">${projectGitHubInputTag.value}</a> | <a href="${projectVideoInputTag.value}">Walk-through Video</a>`;
+          projectDetailedDescription.textContent =
+            projectDetailedDescriptionInputTag.value;
+        }
+        projectForm.addEventListener("submit", updateTechnicalProjects);
+
         function toShowTechnicalProjects(project) {
-          console.log("project", project);
-          const projectName = document.createElement("p");
-          const projectDescription = document.createElement("p");
-          const projectDeployedApp = document.createElement("p");
-          const projectGitHub = document.createElement("p");
-          const projectVideo = document.createElement("p");
-          const projectDetailedDescription = document.createElement("li");
+          // console.log("project", project);
 
           projectName.innerHTML = `<strong>${project.name}</strong> -`;
           projectDescription.innerHTML = `<em>${project.description}</em>`;
@@ -397,16 +431,21 @@ function toAccessUI() {
             projectDetailedDescription
           );
         }
-
         user.technical_projects.map(toShowTechnicalProjects);
 
+        function updateWorkExperience() {
+          event.preventDefault();
+          experienceJobTitle.innerHTML = `<strong>${jobTitleInputTag.value}</strong>`;
+          experienceDate.textContent = jobDateInputTag.value;
+          experienceLocation.textContent = jobLocationInputTag.value;
+          experienceDescription.textContent = jobDescriptionInputTag.value;
+          experienceDetailedDescription.textContent =
+            jobDetailedDescriptionInputTag.value;
+        }
+        experienceForm.addEventListener("submit", updateWorkExperience);
+
         function toShowWorkExperience(experience) {
-          console.log("experience", experience);
-          const experienceJobTitle = document.createElement("p");
-          const experienceDate = document.createElement("p");
-          const experienceLocation = document.createElement("p");
-          const experienceDescription = document.createElement("p");
-          const experienceDetailedDescription = document.createElement("li");
+          // console.log("experience", experience);
 
           experienceJobTitle.innerHTML = `<strong>${experience.job_title}</strong>`;
           experienceDate.textContent = experience.date;
@@ -424,15 +463,18 @@ function toAccessUI() {
             experienceDetailedDescription
           );
         }
-
         user.work_experiences.map(toShowWorkExperience);
 
-        function toShowEducation(education) {
-          console.log("education", education);
-          const educationName = document.createElement("p");
-          const educationDate = document.createElement("p");
-          const educationDescription = document.createElement("li");
+        function updateEducation() {
+          event.preventDefault();
+          educationName.innerHTML = `<strong>${educationNameInputTag.value}</strong>`;
+          educationDate.textContent = educationDateInputTag.value;
+          educationDescription.textContent = educationDescriptionInputTag.value;
+        }
+        educationForm.addEventListener("submit", updateEducation);
 
+        function toShowEducation(education) {
+          // console.log("education", education);
           educationName.innerHTML = `<strong>${education.name}</strong>`;
           educationDate.textContent = education.date;
           educationDescription.textContent = education.description;
@@ -444,13 +486,16 @@ function toAccessUI() {
             educationDescription
           );
         }
-
         user.educations.map(toShowEducation);
 
-        function toShowTechnicalSkills(skill) {
-          console.log("skill", skill);
-          const skillDescription = document.createElement("p");
+        function updateTechnicalSkills() {
+          event.preventDefault();
+          skillDescription.textContent = skillDescriptionInputTag.value;
+        }
+        skillForm.addEventListener("submit", updateTechnicalSkills);
 
+        function toShowTechnicalSkills(skill) {
+          // console.log("skill", skill);
           skillDescription.textContent = skill.description;
 
           showTechnicalSkillsContainer.append(
@@ -458,7 +503,6 @@ function toAccessUI() {
             skillDescription
           );
         }
-
         user.technical_skills.map(toShowTechnicalSkills);
       })
       .catch(error => console.log(error));
