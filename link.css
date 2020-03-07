@@ -183,3 +183,19 @@ button {
 #project-form {
   display: none;
 }
+
+#create-header-form {
+  display: none;
+}
+#create-project-form {
+  display: none;
+}
+#create-experience-form {
+  display: none;
+}
+#create-education-form {
+  display: none;
+}
+#create-skill-form {
+  display: none;
+}
