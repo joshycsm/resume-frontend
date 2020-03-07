@@ -11,6 +11,19 @@ const forgotPasswordButton = document.querySelector(".forgot-password-button");
 const rememberPasswordButton = document.querySelector(
   ".remember-password-button"
 );
+// More buttons
+const updateHeaderButton = document.querySelector(".update-header");
+const addNewHeaderButton = document.querySelector(".add-new-header");
+const updateProjectButton = document.querySelector(".update-project");
+const addNewProjectButton = document.querySelector(".add-new-project");
+const updateExperienceButton = document.querySelector(".update-experience");
+const addExperienceButton = document.querySelector(".add-experience");
+const updateEducationButton = document.querySelector(".update-education-info");
+const addEducationButton = document.querySelector(".add-education-info");
+const addNewSkillButton = document.querySelector(".add-new-skill");
+const updateSkillButton = document.querySelector(".update-skill");
+
+// ok.
 const resetPasswordButton = document.querySelector("#reset-password-button");
 const enterPasswordInput = document.querySelector("#enter-password-input");
 const enterEmailInput = document.querySelector("#enter-email-input");
@@ -294,6 +307,11 @@ function toLogout() {
 }
 function toExitEditMode() {
   exitEditMode.addEventListener("click", () => {
+    createHeaderForm.style.display = "none";
+    createEducationForm.style.display = "none";
+    createExperienceForm.style.display = "none";
+    createProjectForm.style.display = "none";
+    createSkillForm.style.display = "none";
     headerForm.style.display = "none";
     educationForm.style.display = "none";
     experienceForm.style.display = "none";
@@ -302,6 +320,16 @@ function toExitEditMode() {
     exitEditMode.style.display = "none";
     editMode.style.display = "block";
     logoutButton.style.display = "block";
+    updateHeaderButton.style.display = "none";
+    addNewHeaderButton.style.display = "none";
+    updateProjectButton.style.display = "none";
+    addNewProjectButton.style.display = "none";
+    updateExperienceButton.style.display = "none";
+    addExperienceButton.style.display = "none";
+    updateEducationButton.style.display = "none";
+    addEducationButton.style.display = "none";
+    addNewSkillButton.style.display = "none";
+    updateSkillButton.style.display = "none";
   });
 }
 function toSignupUser() {
@@ -357,14 +385,31 @@ function toLoginUser() {
       .catch(error => console.log(error));
   });
 }
+
 function toAccessEditMode() {
   editMode.addEventListener("click", () => {
+    updateHeaderButton.style.display = "block";
+    addNewHeaderButton.style.display = "block";
+    updateProjectButton.style.display = "block";
+    addNewProjectButton.style.display = "block";
+    updateExperienceButton.style.display = "block";
+    addExperienceButton.style.display = "block";
+    updateEducationButton.style.display = "block";
+    addEducationButton.style.display = "block";
+    addNewSkillButton.style.display = "block";
+    updateSkillButton.style.display = "block";
     // console.log("event", event);
-    headerForm.style.display = "block";
-    educationForm.style.display = "block";
-    experienceForm.style.display = "block";
-    projectForm.style.display = "block";
-    skillForm.style.display = "block";
+    headerForm.style.display = "none";
+    educationForm.style.display = "none";
+    experienceForm.style.display = "none";
+    projectForm.style.display = "none";
+    skillForm.style.display = "none";
+    createHeaderForm.style.display = "none";
+    createEducationForm.style.display = "none";
+    createExperienceForm.style.display = "none";
+    createProjectForm.style.display = "none";
+    createSkillForm.style.display = "none";
+
     exitEditMode.style.display = "block";
     editMode.style.display = "none";
     logoutButton.style.display = "none";
@@ -716,4 +761,68 @@ function toAccessResume() {
       })
       .catch(error => console.log(error));
   }
+}
+
+toShowProjectForm();
+toShowSkillForm();
+toShowHeaderForm();
+toShowCreateHeaderForm();
+toShowEducationForm();
+toShowExperienceForm();
+toShowCreateSkillForm();
+toShowCreateExperienceForm();
+toShowCreateEducationForm();
+toShowCreateProjectForm();
+function toShowCreateHeaderForm() {
+  addNewHeaderButton.addEventListener("click", () => {
+    console.log("hit????");
+    createHeaderForm.style.display = "block";
+  });
+}
+function toShowCreateSkillForm() {
+  addNewSkillButton.addEventListener("click", () => {
+    createSkillForm.style.display = "block";
+  });
+}
+function toShowCreateExperienceForm() {
+  addExperienceButton.addEventListener("click", () => {
+    createExperienceForm.style.display = "block";
+  });
+}
+function toShowCreateEducationForm() {
+  addEducationButton.addEventListener("click", () => {
+    createEducationForm.style.display = "block";
+  });
+}
+function toShowCreateProjectForm() {
+  addNewProjectButton.addEventListener("click", () => {
+    createProjectForm.style.display = "block";
+  });
+}
+function toShowProjectForm() {
+  updateProjectButton.addEventListener("click", () => {
+    console.log("?");
+    projectForm.style.display = "block";
+  });
+}
+function toShowEducationForm() {
+  updateEducationButton.addEventListener("click", () => {
+    educationForm.style.display = "block";
+  });
+}
+function toShowExperienceForm() {
+  updateExperienceButton.addEventListener("click", () => {
+    experienceForm.style.display = "block";
+  });
+}
+function toShowSkillForm() {
+  updateSkillButton.addEventListener("click", () => {
+    skillForm.style.display = "block";
+  });
+}
+function toShowHeaderForm() {
+  updateHeaderButton.addEventListener("click", () => {
+    console.log("hitxxxxxxx");
+    headerForm.style.display = "block";
+  });
 }
