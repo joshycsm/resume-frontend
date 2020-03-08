@@ -183,7 +183,6 @@ button {
 #project-form {
   display: none;
 }
-
 #create-header-form {
   display: none;
 }
@@ -200,5 +199,17 @@ button {
   display: none;
 }
 #mystery-button {
+  display: none;
+}
+.technical-skills-header {
+  display: none;
+}
+.technical-projects-header {
+  display: none;
+}
+.work-experience-header {
+  display: none;
+}
+.education-header {
   display: none;
 }
