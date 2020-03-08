@@ -5,7 +5,14 @@
 // require a conditional if header exists, add header button display none.
 // add detailed description in experience/education too... current glitch able to create li's if rest of form is left blank on submit.
 // 133 cons (87 querySelecto, 45 createElemen), 49 addEventListeners, 73 functio,
-
+const technicalProjectsHeader = document.querySelector(
+  ".technical-projects-header"
+);
+const workExperienceHeader = document.querySelector(".work-experience-header");
+const educationHeader = document.querySelector(".education-header");
+const technicalSkillsHeader = document.querySelector(
+  ".technical-skills-header"
+);
 const loginForm = document.querySelector("#login-form");
 const signupForm = document.querySelector("#signup-form");
 const loginButton = document.querySelector("#login-button");
@@ -441,6 +448,10 @@ function toAccessResume() {
       loginForm.style.display = "none";
       logoutButton.style.display = "block";
       loginContainer.style.display = "none";
+      technicalProjectsHeader.style.display = "block";
+      workExperienceHeader.style.display = "block";
+      educationHeader.style.display = "block";
+      technicalSkillsHeader.style.display = "block";
     }
     displayToAccessResumeFunctionality();
 
@@ -452,50 +463,6 @@ function toAccessResume() {
     })
       .then(response => response.json())
       .then(user => {
-        function toAutofillAllInputFieldsInEditMode() {
-          function toAutofillHeaderInputFields(header) {
-            personalTitleInputTag.value = header.title;
-            personalWebsiteInputTag.value = header.personal_website;
-            personalGitHubInputTag.value = header.git_hub;
-            personalLinkedInInputTag.value = header.linked_in;
-            personalEmailInputTag.value = header.email;
-            personalPhoneNumberInputTag.value = header.phone_number;
-            personalMissionStatementInputTag.value = header.mission_statement;
-          }
-          user.headers.map(toAutofillHeaderInputFields);
-          function toAutofillProjectInputFields(project) {
-            projectNameInputTag.value = project.name;
-            projectDescriptionInputTag.value = project.description;
-            projectDeployedAppInputTag.value = project.deployed_app;
-            projectGitHubInputTag.value = project.git_hub;
-            projectVideoInputTag.value = project.video;
-            projectDetailedDescriptionInputTag.value =
-              project.detailed_description;
-          }
-          user.technical_projects.map(toAutofillProjectInputFields);
-          function toAutofillExperienceInputFields(experience) {
-            jobTitleInputTag.value = experience.job_title;
-            jobDateInputTag.value = experience.date;
-            jobLocationInputTag.value = experience.location;
-            jobDescriptionInputTag.value = experience.description;
-            jobDetailedDescriptionInputTag.value =
-              experience.detailed_description;
-          }
-          user.work_experiences.map(toAutofillExperienceInputFields);
-          function toAutofillEducationInputFields(education) {
-            educationNameInputTag.value = education.name;
-            educationDateInputTag.value = education.date;
-            educationDescriptionInputTag.value = education.description;
-          }
-          user.educations.map(toAutofillEducationInputFields);
-          function toAutofillSkillInputFields() {
-            skillDescriptionInputTag.value =
-              user.technical_skills[0].description;
-          }
-          toAutofillSkillInputFields();
-        }
-        toAutofillAllInputFieldsInEditMode();
-
         loggedInUser.textContent = user.name;
 
         topContainer.append(loggedInUser);
@@ -729,11 +696,52 @@ function toAccessResume() {
           showTechnicalSkillsContainer.append(skillDescription);
         }
         user.technical_skills.map(toShowTechnicalSkills);
+        function toAutofillAllInputFieldsInEditMode() {
+          function toAutofillHeaderInputFields(header) {
+            personalTitleInputTag.value = header.title;
+            personalWebsiteInputTag.value = header.personal_website;
+            personalGitHubInputTag.value = header.git_hub;
+            personalLinkedInInputTag.value = header.linked_in;
+            personalEmailInputTag.value = header.email;
+            personalPhoneNumberInputTag.value = header.phone_number;
+            personalMissionStatementInputTag.value = header.mission_statement;
+          }
+          user.headers.map(toAutofillHeaderInputFields);
+          function toAutofillProjectInputFields(project) {
+            projectNameInputTag.value = project.name;
+            projectDescriptionInputTag.value = project.description;
+            projectDeployedAppInputTag.value = project.deployed_app;
+            projectGitHubInputTag.value = project.git_hub;
+            projectVideoInputTag.value = project.video;
+            projectDetailedDescriptionInputTag.value =
+              project.detailed_description;
+          }
+          user.technical_projects.map(toAutofillProjectInputFields);
+          function toAutofillExperienceInputFields(experience) {
+            jobTitleInputTag.value = experience.job_title;
+            jobDateInputTag.value = experience.date;
+            jobLocationInputTag.value = experience.location;
+            jobDescriptionInputTag.value = experience.description;
+            jobDetailedDescriptionInputTag.value =
+              experience.detailed_description;
+          }
+          user.work_experiences.map(toAutofillExperienceInputFields);
+          function toAutofillEducationInputFields(education) {
+            educationNameInputTag.value = education.name;
+            educationDateInputTag.value = education.date;
+            educationDescriptionInputTag.value = education.description;
+          }
+          user.educations.map(toAutofillEducationInputFields);
+          function toAutofillSkillInputFields(skill) {
+            skillDescriptionInputTag.value = skill.description;
+          }
+          user.technical_skills.map(toAutofillSkillInputFields);
+        }
+        toAutofillAllInputFieldsInEditMode();
       })
       .catch(error => console.log(error));
   }
 }
-
 toShowHeaderForm();
 toShowProjectForm();
 toShowExperienceForm();
@@ -814,7 +822,6 @@ function toShowCreateSkillForm() {
     addNewSkillButton.style.display = "none";
   });
 }
-
 toHideHeaderForm();
 toHideProjectForm();
 toHideExperienceForm();
