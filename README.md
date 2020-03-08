@@ -12,4 +12,9 @@ https://github.com/joshycsm/backend_resume
 
 Once signed in, there is an edit mode that allows the user to create/update different sections that would typically assist in a standard software developer's resume.
 
+Updating resume is currently being prevented unless you sign in as:
+username: parker123 , password: parker123
+
+Correcting name spelling when creating accounts coming soon; followed by updating resume functionality for all new users.
+
 Enjoy!
