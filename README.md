@@ -1,5 +1,7 @@
 # resume-frontend
 
+![resumedemo](./resumedemo.gif)
+
 This is a work in progress resume builder. Continue to check back occassionally for future updates and further progression of the code :)
 
 Looking forward to deploying at the completion of this project so users can easily create their own go to resume and make updates and additions to it quick and easily anytime!

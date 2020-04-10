@@ -4,7 +4,7 @@
 // Make it possible to grab each container and move to the specific order of interest within each major container?
 // require a conditional if header exists, add header button display none.
 // add detailed description in experience/education too... current glitch able to create li's if rest of form is left blank on submit.
-// 133 cons (87 querySelecto, 45 createElemen), 49 addEventListeners, 73 functio,
+// 137 cons (91 querySelecto, 45 createElemen), 49 addEventListene, 73 functio,
 const technicalProjectsHeader = document.querySelector(
   ".technical-projects-header"
 );
